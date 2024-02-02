@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_image_lists",
+  "info": {
+    "displayName": "Image List",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

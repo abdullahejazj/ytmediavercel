@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_shared_type_writers",
+  "info": {
+    "displayName": "Type Writer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "word": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,7 +1,8 @@
 {
   "collectionName": "components_sections_faqs",
   "info": {
-    "displayName": "Faqs"
+    "displayName": "Faqs",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -13,7 +14,8 @@
       "displayName": "Question",
       "type": "component",
       "repeatable": true,
-      "component": "components.question"
+      "component": "components.question",
+      "required": true
     }
   }
 }

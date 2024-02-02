@@ -1,21 +1,10 @@
 {
-  "collectionName": "components_shared_buttons",
+  "collectionName": "components_shared_nav_links",
   "info": {
-    "displayName": "Button",
-    "description": ""
+    "displayName": "Nav Link"
   },
   "options": {},
   "attributes": {
-    "variant": {
-      "type": "enumeration",
-      "enum": [
-        "text",
-        "contained",
-        "outlined"
-      ],
-      "required": true,
-      "default": "contained"
-    },
     "label": {
       "type": "string",
       "required": true
@@ -30,6 +19,7 @@
         "_self",
         "_blank"
       ],
+      "required": true,
       "default": "_self"
     }
   }

@@ -12,7 +12,7 @@
     "cases": {
       "type": "component",
       "repeatable": true,
-      "component": "components.tools",
+      "component": "components.tool",
       "required": true
     }
   }
