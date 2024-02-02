@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_sections_use_cases",
+  "info": {
+    "displayName": "Use Cases"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "text",
+      "required": true
+    },
+    "cases": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.tools",
+      "required": true
+    }
+  }
+}

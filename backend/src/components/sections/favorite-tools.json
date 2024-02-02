@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_sections_favorite_tools",
+  "info": {
+    "displayName": "Favorite Tools",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "text",
+      "required": true
+    },
+    "tools": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.tool",
+      "required": true
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.button"
+    }
+  }
+}
