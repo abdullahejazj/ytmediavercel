@@ -7,18 +7,67 @@ import PricingSection from "@/components/pricing/PricingSection";
 import ReviewsSection from "@/components/reviews/ReviewsSection";
 import UsecaseSection from "@/components/usecase/UsecaseSection";
 import Reveal from "@/components/utils/Reveal";
-import { Metadata } from "next";
+import { getHomePageContent } from "@/services/getHomePageContent";
 
-export const metadata: Metadata = {
-	title: "Homepage",
-};
+// SEO Metadata
+export async function generateMetadata() {
+	const res = await getHomePageContent();
 
-export default function Home() {
+	const title = res?.seo?.metaTitle;
+	const description = res?.seo?.metaDescription;
+	const keywords = res?.seo?.keywords;
+	const image = res?.seo?.metaImage?.data?.attributes?.url;
+	const canonicalURL = res?.seo?.canonicalURL;
+
+	return {
+		title,
+		description,
+		keywords,
+		openGraph: {
+			title,
+			description,
+			siteName: "GenAI",
+			images: [image],
+		},
+		alternates: {
+			canonical: canonicalURL,
+		},
+		robots: {
+			index: false,
+			follow: true,
+			nocache: true,
+			googleBot: {
+				index: true,
+				follow: false,
+				noimageindex: true,
+				"max-video-preview": -1,
+				"max-image-preview": "large",
+				"max-snippet": -1,
+			},
+		},
+		authors: [
+			{
+				name: "Omar Faruq",
+			},
+			{
+				name: "Omar Faruq",
+				url: "https://github.com/0xNaim",
+				email: "naimislam3545@gmail.com",
+			},
+		],
+	};
+}
+
+export default async function Home() {
+	const homeContent = await getHomePageContent();
+
+	console.log("Data: ", homeContent);
+
 	return (
 		<main className="flex-grow-1">
-			<Herosection />
+			<Herosection heroContent={homeContent?.hero} />
 
-			<FeaturesSection />
+			<FeaturesSection favoriteTools={homeContent?.favorite_tools} />
 
 			<BlockFeatureSection />
 

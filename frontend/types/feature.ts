@@ -1,6 +1,7 @@
 export type TFeature = {
-    id: number | string;
-    title: string;
-    description: string;
-    icon?: string;
+	id: number | string;
+	title: string;
+	description: string;
+	icon?: string | any;
+	button?: any;
 };

@@ -1,9 +1,10 @@
 "use client";
 
+import { extractWords } from "@/utils/extract-words";
 import { useEffect, useState } from "react";
 import ReactTyped from "react-typed";
 
-export default function TypedText() {
+export default function TypedText({ typeWriter }: any) {
 	const [isMounted, setIsMounted] = useState(false);
 
 	useEffect(() => {
@@ -11,11 +12,15 @@ export default function TypedText() {
 	}, []);
 
 	if (!isMounted)
-		return <span className="fw-bold text-gradient-2 typed-animation">Technical Writing</span>;
+		return (
+			<span className="fw-bold text-gradient-2 typed-animation">
+				Technical Writing
+			</span>
+		);
 
 	return (
 		<ReactTyped
-			strings={["Technical Writing", "News Article", "SEO Content", "Product Description"]}
+			strings={extractWords(typeWriter)}
 			typeSpeed={100}
 			className="fw-bold text-gradient-2 typed-animation"
 		/>

@@ -4,10 +4,12 @@ export interface ComponentsFeature extends Schema.Component {
   collectionName: 'components_components_features';
   info: {
     displayName: 'Feature';
+    description: '';
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
     heading: Attribute.Text & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
     text_items: Attribute.Component<'shared.text-list', true> &
       Attribute.Required;
@@ -150,6 +152,7 @@ export interface SectionsUseCases extends Schema.Component {
     displayName: 'Use Cases';
   };
   attributes: {
+    title: Attribute.String & Attribute.Required;
     heading: Attribute.Text & Attribute.Required;
     cases: Attribute.Component<'components.tool', true> & Attribute.Required;
   };
