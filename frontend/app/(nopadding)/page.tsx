@@ -61,7 +61,7 @@ export async function generateMetadata() {
 export default async function Home() {
 	const homeContent = await getHomePageContent();
 
-	console.log("Data: ", homeContent);
+	// console.log("Data: ", homeContent);
 
 	return (
 		<main className="flex-grow-1">
@@ -69,7 +69,7 @@ export default async function Home() {
 
 			<FeaturesSection favoriteTools={homeContent?.favorite_tools} />
 
-			<BlockFeatureSection />
+			<BlockFeatureSection features={homeContent?.features} />
 
 			{/* Use cases section */}
 			<section className="bg-striped bg-striped-sm bg-striped-bottom bg-dark-blue-4 py-20 py-lg-30">
