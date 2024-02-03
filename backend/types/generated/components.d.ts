@@ -150,11 +150,16 @@ export interface SectionsUseCases extends Schema.Component {
   collectionName: 'components_sections_use_cases';
   info: {
     displayName: 'Use Cases';
+    description: '';
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
     heading: Attribute.Text & Attribute.Required;
-    cases: Attribute.Component<'components.tool', true> & Attribute.Required;
+    cases: Attribute.Relation<
+      'sections.use-cases',
+      'oneToMany',
+      'api::case.case'
+    >;
   };
 }
 

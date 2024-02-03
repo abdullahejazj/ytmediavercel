@@ -1,7 +1,8 @@
 {
   "collectionName": "components_sections_use_cases",
   "info": {
-    "displayName": "Use Cases"
+    "displayName": "Use Cases",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -14,10 +15,9 @@
       "required": true
     },
     "cases": {
-      "type": "component",
-      "repeatable": true,
-      "component": "components.tool",
-      "required": true
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::case.case"
     }
   }
 }

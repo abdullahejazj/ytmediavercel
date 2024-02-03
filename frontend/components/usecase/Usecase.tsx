@@ -1,15 +1,25 @@
-import { TUseCaseVariants, TUsecaseMetadata } from "@/types/usecase";
 import classNames from "classnames";
+import Image from "next/image";
 import Link from "next/link";
 
-type TUsecaseProps = {
-	data: TUsecaseMetadata;
-	variant?: TUseCaseVariants;
+type UseCaseProps = {
+	data: {
+		id: number;
+		attributes: {
+			title: string;
+			description: string;
+			slug: string;
+			createdAt: string;
+			updatedAt: string;
+			publishedAt: string;
+			content: string;
+			icon: Record<string, any>;
+		};
+	};
+	variant: string;
 };
 
-export default function Usecase({ data, variant = "none" }: TUsecaseProps) {
-	const { title, description, icon, slug } = data;
-
+export default function Usecase({ data, variant = "none" }: UseCaseProps) {
 	return (
 		<div
 			className={classNames("d-flex flex-column justify-between gap-6 h-full", {
@@ -26,24 +36,25 @@ export default function Usecase({ data, variant = "none" }: TUsecaseProps) {
 					}
 				)}
 			>
-				<i
-					className={classNames(`ti ti-${icon}`, {
-						"fs-3": variant === "none",
-						"fs-1": variant === "center-styled",
-					})}
-				></i>
+				<Image
+					src={data?.attributes?.icon?.data?.attributes?.url}
+					width={120}
+					height={120}
+					alt="Icon"
+					className="img-fluid"
+				/>
 			</div>
 			<div className="content flex-grow-1">
-				<h5 className="text-white mb-4">{title}</h5>
-				<p className="mb-0">{description}</p>
+				<h5 className="text-white mb-4">{data?.attributes?.title}</h5>
+				<p className="mb-0">{data?.attributes?.description}</p>
 			</div>
 
 			<div className="flex-shrink-0">
 				<Link
-					href={`/use-cases/${slug}`}
+					href={`/use-cases/${data?.attributes?.slug}`}
 					className="arrow-link arrow-link-primary-dark gap-3 fs-sm"
 				>
-					<span>Try {title}</span>
+					<span>Try {data?.attributes?.title}</span>
 					<i className="ti ti-arrow-up-right fs-5"></i>
 				</Link>
 			</div>
