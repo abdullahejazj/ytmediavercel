@@ -10,7 +10,8 @@ export default function FeaturesSection3() {
 			<div className="container">
 				<div className="text-center mb-18">
 					<Reveal el="h1" className="mb-0" delay={0.05}>
-						Generate Creative AI Copy On-The-Spot, <br className="d-none d-lg-block" />
+						Generate Creative AI Copy On-The-Spot,{" "}
+						<br className="d-none d-lg-block" />
 						Across Your Favorite Tools
 					</Reveal>
 				</div>
@@ -23,7 +24,10 @@ export default function FeaturesSection3() {
 					))}
 				</div>
 
-				<Reveal className="video-popup-container position-relative" delay={0.05}>
+				<Reveal
+					className="video-popup-container position-relative"
+					delay={0.05}
+				>
 					<div className="ratio ratio-16x9 rounded-4 overflow-hidden mt-16">
 						<Image
 							placeholder="blur"

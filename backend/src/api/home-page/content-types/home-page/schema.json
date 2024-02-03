@@ -30,11 +30,6 @@
       "component": "sections.hero",
       "required": false
     },
-    "favorite_tools": {
-      "type": "component",
-      "repeatable": false,
-      "component": "sections.favorite-tools"
-    },
     "features": {
       "type": "component",
       "repeatable": false,

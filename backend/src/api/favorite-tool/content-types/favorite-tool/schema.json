@@ -1,10 +1,16 @@
 {
-  "collectionName": "components_sections_favorite_tools",
+  "kind": "singleType",
+  "collectionName": "favorite_tools",
   "info": {
+    "singularName": "favorite-tool",
+    "pluralName": "favorite-tools",
     "displayName": "Favorite Tools",
     "description": ""
   },
-  "options": {},
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
   "attributes": {
     "heading": {
       "type": "text",
@@ -20,6 +26,11 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.button"
+    },
+    "video": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.video"
     }
   }
 }

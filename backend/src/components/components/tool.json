@@ -21,11 +21,6 @@
     "description": {
       "type": "text",
       "required": true
-    },
-    "button": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.button"
     }
   }
 }

@@ -67,7 +67,7 @@ export default async function Home() {
 		<main className="flex-grow-1">
 			<Herosection heroContent={homeContent?.hero} />
 
-			<FeaturesSection favoriteTools={homeContent?.favorite_tools} />
+			<FeaturesSection showButton />
 
 			<BlockFeatureSection features={homeContent?.features} />
 

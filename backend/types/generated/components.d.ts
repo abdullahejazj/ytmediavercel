@@ -61,7 +61,6 @@ export interface ComponentsTool extends Schema.Component {
     icon: Attribute.Media & Attribute.Required;
     title: Attribute.String & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
-    button: Attribute.Component<'shared.button'>;
   };
 }
 
@@ -75,19 +74,6 @@ export interface SectionsFaqs extends Schema.Component {
     heading: Attribute.Text & Attribute.Required;
     questions: Attribute.Component<'components.question', true> &
       Attribute.Required;
-  };
-}
-
-export interface SectionsFavoriteTools extends Schema.Component {
-  collectionName: 'components_sections_favorite_tools';
-  info: {
-    displayName: 'Favorite Tools';
-    description: '';
-  };
-  attributes: {
-    heading: Attribute.Text & Attribute.Required;
-    tools: Attribute.Component<'components.tool', true> & Attribute.Required;
-    button: Attribute.Component<'shared.button'>;
   };
 }
 
@@ -333,6 +319,18 @@ export interface SharedTypeWriter extends Schema.Component {
   };
 }
 
+export interface SharedVideo extends Schema.Component {
+  collectionName: 'components_shared_videos';
+  info: {
+    displayName: 'Video';
+  };
+  attributes: {
+    thumbnail: Attribute.Media & Attribute.Required;
+    video_url: Attribute.String & Attribute.Required;
+    play_icon: Attribute.Media & Attribute.Required;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -341,7 +339,6 @@ declare module '@strapi/types' {
       'components.review': ComponentsReview;
       'components.tool': ComponentsTool;
       'sections.faqs': SectionsFaqs;
-      'sections.favorite-tools': SectionsFavoriteTools;
       'sections.features': SectionsFeatures;
       'sections.hero': SectionsHero;
       'sections.reviews': SectionsReviews;
@@ -358,6 +355,7 @@ declare module '@strapi/types' {
       'shared.social-link': SharedSocialLink;
       'shared.text-list': SharedTextList;
       'shared.type-writer': SharedTypeWriter;
+      'shared.video': SharedVideo;
     }
   }
 }

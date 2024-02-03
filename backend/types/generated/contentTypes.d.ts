@@ -362,73 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiCaseCase extends Schema.CollectionType {
-  collectionName: 'cases';
-  info: {
-    singularName: 'case';
-    pluralName: 'cases';
-    displayName: 'Cases';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    slug: Attribute.UID<'api::case.case', 'title'>;
-    title: Attribute.String & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
-    icon: Attribute.Media & Attribute.Required;
-    content: Attribute.RichText & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::case.case', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::case.case', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiHomePageHomePage extends Schema.SingleType {
-  collectionName: 'home_pages';
-  info: {
-    singularName: 'home-page';
-    pluralName: 'home-pages';
-    displayName: 'Home Page';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    header: Attribute.Component<'shared.header'>;
-    footer: Attribute.Component<'shared.footer'>;
-    hero: Attribute.Component<'sections.hero'>;
-    favorite_tools: Attribute.Component<'sections.favorite-tools'>;
-    features: Attribute.Component<'sections.features'>;
-    use_cases: Attribute.Component<'sections.use-cases'>;
-    reviews: Attribute.Component<'sections.reviews'>;
-    faq: Attribute.Component<'sections.faqs'>;
-    solution: Attribute.Component<'sections.solution'>;
-    seo: Attribute.Component<'shared.seo'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::home-page.home-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::home-page.home-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -848,6 +781,106 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiCaseCase extends Schema.CollectionType {
+  collectionName: 'cases';
+  info: {
+    singularName: 'case';
+    pluralName: 'cases';
+    displayName: 'Cases';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    slug: Attribute.UID<'api::case.case', 'title'>;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    icon: Attribute.Media & Attribute.Required;
+    content: Attribute.RichText & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::case.case', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::case.case', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFavoriteToolFavoriteTool extends Schema.SingleType {
+  collectionName: 'favorite_tools';
+  info: {
+    singularName: 'favorite-tool';
+    pluralName: 'favorite-tools';
+    displayName: 'Favorite Tools';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    heading: Attribute.Text & Attribute.Required;
+    tools: Attribute.Component<'components.tool', true> & Attribute.Required;
+    button: Attribute.Component<'shared.button'>;
+    video: Attribute.Component<'shared.video'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::favorite-tool.favorite-tool',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::favorite-tool.favorite-tool',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHomePageHomePage extends Schema.SingleType {
+  collectionName: 'home_pages';
+  info: {
+    singularName: 'home-page';
+    pluralName: 'home-pages';
+    displayName: 'Home Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    header: Attribute.Component<'shared.header'>;
+    footer: Attribute.Component<'shared.footer'>;
+    hero: Attribute.Component<'sections.hero'>;
+    features: Attribute.Component<'sections.features'>;
+    use_cases: Attribute.Component<'sections.use-cases'>;
+    reviews: Attribute.Component<'sections.reviews'>;
+    faq: Attribute.Component<'sections.faqs'>;
+    solution: Attribute.Component<'sections.solution'>;
+    seo: Attribute.Component<'shared.seo'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -858,8 +891,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::case.case': ApiCaseCase;
-      'api::home-page.home-page': ApiHomePageHomePage;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -868,6 +899,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::case.case': ApiCaseCase;
+      'api::favorite-tool.favorite-tool': ApiFavoriteToolFavoriteTool;
+      'api::home-page.home-page': ApiHomePageHomePage;
     }
   }
 }

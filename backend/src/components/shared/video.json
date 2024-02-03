@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_shared_videos",
+  "info": {
+    "displayName": "Video"
+  },
+  "options": {},
+  "attributes": {
+    "thumbnail": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "video_url": {
+      "type": "string",
+      "required": true
+    },
+    "play_icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

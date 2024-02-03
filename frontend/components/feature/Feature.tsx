@@ -14,7 +14,7 @@ export default function Feature({ data }: TFeatureProps) {
 			<div className="icon w-14 h-14 flex-shrink-0 d-flex align-center justify-center rounded-3 p-2 border bg-gradient-3 text-primary-dark border-white border-opacity-10">
 				{icon ? (
 					<Image
-						src={`${icon?.data?.attributes?.url}`}
+						src={`${icon?.data?.attributes?.url || ''}`}
 						width={120}
 						height={120}
 						alt="Icon"
