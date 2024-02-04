@@ -15,9 +15,7 @@ export default async function FeaturesSection({
 			<div className="container">
 				<div className="text-center mb-18">
 					<Reveal el="h1" className="mb-0 text-white" delay={0.05}>
-						<p style={{ width: "90%", textAlign: "center" }}>
-							{favoritesTools?.heading}
-						</p>
+						<div className="feature-heading">{favoritesTools?.heading}</div>
 					</Reveal>
 				</div>
 

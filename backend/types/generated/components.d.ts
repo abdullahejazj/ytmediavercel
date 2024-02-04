@@ -1,5 +1,17 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface ComponentsFaq extends Schema.Component {
+  collectionName: 'components_components_questions';
+  info: {
+    displayName: 'Faq';
+    description: '';
+  };
+  attributes: {
+    question: Attribute.Text & Attribute.Required;
+    answer: Attribute.Text & Attribute.Required;
+  };
+}
+
 export interface ComponentsFeature extends Schema.Component {
   collectionName: 'components_components_features';
   info: {
@@ -14,18 +26,6 @@ export interface ComponentsFeature extends Schema.Component {
     text_items: Attribute.Component<'shared.text-list', true> &
       Attribute.Required;
     button: Attribute.Component<'shared.button'> & Attribute.Required;
-  };
-}
-
-export interface ComponentsQuestion extends Schema.Component {
-  collectionName: 'components_components_questions';
-  info: {
-    displayName: 'Question';
-    description: '';
-  };
-  attributes: {
-    question: Attribute.Text & Attribute.Required;
-    answer: Attribute.Text & Attribute.Required;
   };
 }
 
@@ -73,8 +73,7 @@ export interface SectionsFaqs extends Schema.Component {
   };
   attributes: {
     heading: Attribute.Text & Attribute.Required;
-    questions: Attribute.Component<'components.question', true> &
-      Attribute.Required;
+    questions: Attribute.Component<'components.faq', true> & Attribute.Required;
   };
 }
 
@@ -335,8 +334,8 @@ export interface SharedVideo extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'components.faq': ComponentsFaq;
       'components.feature': ComponentsFeature;
-      'components.question': ComponentsQuestion;
       'components.review': ComponentsReview;
       'components.tool': ComponentsTool;
       'sections.faqs': SectionsFaqs;

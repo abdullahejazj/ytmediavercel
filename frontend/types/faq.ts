@@ -1,5 +1,5 @@
 export type TFaq = {
     id: number | string;
-    header: string;
-    body: string;
+    question: string;
+    answer: string;
 }

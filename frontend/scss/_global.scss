@@ -249,3 +249,21 @@ a {
 	z-index: 999;
 	font-size: 14px;
 }
+
+.feature-heading {
+	width: 90% !important;
+	margin: 0 auto;
+
+	@media only screen and (max-width: 768px) {
+		width: 100%;
+	}
+}
+
+.faq-heading {
+	width: 70% !important;
+	margin: 0 auto;
+
+	@media only screen and (max-width: 768px) {
+		width: 100%;
+	}
+}
