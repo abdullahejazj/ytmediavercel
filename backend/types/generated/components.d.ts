@@ -33,11 +33,12 @@ export interface ComponentsReview extends Schema.Component {
   collectionName: 'components_components_reviews';
   info: {
     displayName: 'Review';
+    description: '';
   };
   attributes: {
-    author_name: Attribute.String & Attribute.Required;
-    role: Attribute.String & Attribute.Required;
-    avatar: Attribute.Media & Attribute.Required;
+    name: Attribute.String & Attribute.Required;
+    designation: Attribute.String & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
     rating: Attribute.Integer &
       Attribute.Required &
       Attribute.SetMinMax<
@@ -47,7 +48,7 @@ export interface ComponentsReview extends Schema.Component {
         },
         number
       >;
-    review_text: Attribute.Text & Attribute.Required;
+    message: Attribute.Text & Attribute.Required;
   };
 }
 

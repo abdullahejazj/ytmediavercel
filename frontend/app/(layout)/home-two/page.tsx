@@ -6,7 +6,7 @@ import FeaturesSection2 from "@/components/feature/FeaturesSection2";
 import Herosection2 from "@/components/herosection/Herosection2";
 import PricingSection2 from "@/components/pricing/PricingSection2";
 import ReviewsSection2 from "@/components/reviews/ReviewsSection2";
-import UsecaseSection from "@/components/usecase/UsecaseSection";
+import Usecases from "@/components/usecase/Usecases";
 import Reveal from "@/components/utils/Reveal";
 import { Metadata } from "next";
 
@@ -40,7 +40,7 @@ export default function Home2() {
 						</div>
 					</div>
 					<div className="row justify-center row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 gx-8 gy-14">
-						<UsecaseSection variant="center-styled" limit={8} />
+						<Usecases variant="center-styled" limit={8} />
 					</div>
 				</div>
 			</section>

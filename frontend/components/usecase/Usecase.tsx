@@ -5,21 +5,21 @@ import Link from "next/link";
 type UseCaseProps = {
 	data: {
 		id: number;
-		attributes: {
-			title: string;
-			description: string;
-			slug: string;
-			createdAt: string;
-			updatedAt: string;
-			publishedAt: string;
-			content: string;
-			icon: Record<string, any>;
-		};
+		title: string;
+		description: string;
+		slug: string;
+		createdAt: string;
+		updatedAt: string;
+		publishedAt: string;
+		content: string;
+		icon: Record<string, any>;
 	};
 	variant: string;
 };
 
 export default function Usecase({ data, variant = "none" }: UseCaseProps) {
+	const { title, description, slug, icon } = data;
+
 	return (
 		<div
 			className={classNames("d-flex flex-column justify-between gap-6 h-full", {
@@ -37,7 +37,7 @@ export default function Usecase({ data, variant = "none" }: UseCaseProps) {
 				)}
 			>
 				<Image
-					src={data?.attributes?.icon?.data?.attributes?.url}
+					src={icon?.url}
 					width={120}
 					height={120}
 					alt="Icon"
@@ -45,16 +45,16 @@ export default function Usecase({ data, variant = "none" }: UseCaseProps) {
 				/>
 			</div>
 			<div className="content flex-grow-1">
-				<h5 className="text-white mb-4">{data?.attributes?.title}</h5>
-				<p className="mb-0">{data?.attributes?.description}</p>
+				<h5 className="text-white mb-4">{title}</h5>
+				<p className="mb-0">{description}</p>
 			</div>
 
 			<div className="flex-shrink-0">
 				<Link
-					href={`/use-cases/${data?.attributes?.slug}`}
+					href={`/use-cases/${slug}`}
 					className="arrow-link arrow-link-primary-dark gap-3 fs-sm"
 				>
-					<span>Try {data?.attributes?.title}</span>
+					<span>Try {title}</span>
 					<i className="ti ti-arrow-up-right fs-5"></i>
 				</Link>
 			</div>

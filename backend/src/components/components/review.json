@@ -1,25 +1,26 @@
 {
   "collectionName": "components_components_reviews",
   "info": {
-    "displayName": "Review"
+    "displayName": "Review",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "author_name": {
+    "name": {
       "type": "string",
       "required": true
     },
-    "role": {
+    "designation": {
       "type": "string",
       "required": true
     },
-    "avatar": {
-      "allowedTypes": [
-        "images"
-      ],
+    "image": {
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "rating": {
       "type": "integer",
@@ -27,7 +28,7 @@
       "max": 5,
       "required": true
     },
-    "review_text": {
+    "message": {
       "type": "text",
       "required": true
     }

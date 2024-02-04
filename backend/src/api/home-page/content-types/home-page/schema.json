@@ -35,26 +35,6 @@
       "repeatable": false,
       "component": "sections.features"
     },
-    "use_cases": {
-      "type": "component",
-      "repeatable": false,
-      "component": "sections.use-cases"
-    },
-    "reviews": {
-      "type": "component",
-      "repeatable": false,
-      "component": "sections.reviews"
-    },
-    "faq": {
-      "type": "component",
-      "repeatable": false,
-      "component": "sections.faqs"
-    },
-    "solution": {
-      "type": "component",
-      "repeatable": false,
-      "component": "sections.solution"
-    },
     "seo": {
       "type": "component",
       "repeatable": false,

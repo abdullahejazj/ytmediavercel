@@ -858,10 +858,6 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     footer: Attribute.Component<'shared.footer'>;
     hero: Attribute.Component<'sections.hero'>;
     features: Attribute.Component<'sections.features'>;
-    use_cases: Attribute.Component<'sections.use-cases'>;
-    reviews: Attribute.Component<'sections.reviews'>;
-    faq: Attribute.Component<'sections.faqs'>;
-    solution: Attribute.Component<'sections.solution'>;
     seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -874,6 +870,72 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiReviewReview extends Schema.SingleType {
+  collectionName: 'reviews';
+  info: {
+    singularName: 'review';
+    pluralName: 'reviews';
+    displayName: 'Reviews';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    heading: Attribute.Text & Attribute.Required;
+    reviews: Attribute.Component<'components.review', true> &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::review.review',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::review.review',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiUseCaseUseCase extends Schema.SingleType {
+  collectionName: 'use_cases';
+  info: {
+    singularName: 'use-case';
+    pluralName: 'use-cases';
+    displayName: 'Use Cases';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    heading: Attribute.Text & Attribute.Required;
+    seo: Attribute.Component<'shared.seo'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::use-case.use-case',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::use-case.use-case',
       'oneToOne',
       'admin::user'
     > &
@@ -902,6 +964,8 @@ declare module '@strapi/types' {
       'api::case.case': ApiCaseCase;
       'api::favorite-tool.favorite-tool': ApiFavoriteToolFavoriteTool;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::review.review': ApiReviewReview;
+      'api::use-case.use-case': ApiUseCaseUseCase;
     }
   }
 }

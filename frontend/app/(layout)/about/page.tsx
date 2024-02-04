@@ -1,7 +1,7 @@
 import AboutSection from "@/components/about/AboutSection";
 import BrandLogoSection2 from "@/components/brandlogo/BrandLogoSection2";
 import CtaHome from "@/components/cta/CtaHome";
-import FeaturesSection3 from "@/components/feature/FeaturesSection3";
+import FeaturesSection from "@/components/feature/FeaturesSection";
 import ReviewsSection from "@/components/reviews/ReviewsSection";
 import Breadcrumb from "@/components/shared/Breadcrumb";
 import TeamSection from "@/components/team/TeamSection";
@@ -29,7 +29,7 @@ export default function AboutPage() {
 
 			<AboutSection />
 
-			<FeaturesSection3 />
+			<FeaturesSection showVideo />
 
 			<TeamSection />
 
