@@ -925,6 +925,48 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
   };
 }
 
+export interface ApiPricingPlanPricingPlan extends Schema.SingleType {
+  collectionName: 'pricing_plans';
+  info: {
+    singularName: 'pricing-plan';
+    pluralName: 'pricing-plans';
+    displayName: 'Pricing Plan';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    heading: Attribute.Text;
+    helper_text: Attribute.Text & Attribute.Required;
+    plans: Attribute.Component<'components.plan', true> &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 6;
+          max: 6;
+        },
+        number
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pricing-plan.pricing-plan',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pricing-plan.pricing-plan',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiReviewReview extends Schema.SingleType {
   collectionName: 'reviews';
   info: {
@@ -1014,6 +1056,7 @@ declare module '@strapi/types' {
       'api::faq.faq': ApiFaqFaq;
       'api::favorite-tool.favorite-tool': ApiFavoriteToolFavoriteTool;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::pricing-plan.pricing-plan': ApiPricingPlanPricingPlan;
       'api::review.review': ApiReviewReview;
       'api::use-case.use-case': ApiUseCaseUseCase;
     }

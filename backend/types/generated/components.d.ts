@@ -29,6 +29,26 @@ export interface ComponentsFeature extends Schema.Component {
   };
 }
 
+export interface ComponentsPlan extends Schema.Component {
+  collectionName: 'components_components_plans';
+  info: {
+    displayName: 'Plan';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    price: Attribute.Integer & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    button: Attribute.Component<'shared.button'> & Attribute.Required;
+    features: Attribute.Component<'shared.text-list', true> &
+      Attribute.Required;
+    isPopular: Attribute.Boolean & Attribute.DefaultTo<false>;
+    type: Attribute.Enumeration<['monthly', 'yearly']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'monthly'>;
+  };
+}
+
 export interface ComponentsReview extends Schema.Component {
   collectionName: 'components_components_reviews';
   info: {
@@ -336,6 +356,7 @@ declare module '@strapi/types' {
     export interface Components {
       'components.faq': ComponentsFaq;
       'components.feature': ComponentsFeature;
+      'components.plan': ComponentsPlan;
       'components.review': ComponentsReview;
       'components.tool': ComponentsTool;
       'sections.faqs': SectionsFaqs;

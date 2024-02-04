@@ -9,28 +9,30 @@ type TPriceboxProps = {
 };
 
 export default function Pricebox({ data }: TPriceboxProps) {
-	const { id, name, isPopular, price, description, buttonText, features } = data;
+	const { name, isPopular, price, description, button, features } = data;
 
-	const handleChoosePlan = (e: SyntheticEvent) => {
+	const handleChoosePlan = (e: SyntheticEvent, name: string) => {
 		e.preventDefault();
-		toast.success(`Successfully choose plan ${id}!`);
+		toast.success(`Successfully choose plan ${name}!`);
 	};
 
 	return (
 		<div className="pricing-card p-6 px-lg-10 py-lg-8 rounded-4 h-full bg-darkdark">
-			{isPopular && <span className="badge text-bg-primary px-4 py-2">Most Popular</span>}
+			{isPopular && (
+				<span className="badge text-bg-primary px-4 py-2">Most Popular</span>
+			)}
 			<h3 className="text-primary-dark fw-medium mb-0">{name}</h3>
 			<h1 className="display-2 fw-semibold text-white mb-0 mt-4">${price}</h1>
 			<p className="text-white lead fw-normal mt-4 mb-0">{description}</p>
 			<button
 				className="pricing-btn btn btn-lg w-full fs-4 lh-sm mt-9 btn-dark-blue-3"
-				onClick={(e) => handleChoosePlan(e)}
+				onClick={(e) => handleChoosePlan(e, name)}
 			>
-				{buttonText}
+				{button?.label}
 			</button>
 			<ul className="pricing-list d-flex flex-column gap-5 fs-lg mt-9 mb-0">
-				{features.map((feature, index) => (
-					<li key={index}>{feature}</li>
+				{features?.map((feature: any) => (
+					<li key={feature?.id}>{feature?.item}</li>
 				))}
 			</ul>
 		</div>

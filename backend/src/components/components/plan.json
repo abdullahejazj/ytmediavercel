@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_components_plans",
+  "info": {
+    "displayName": "Plan",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "integer",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.button",
+      "required": true
+    },
+    "features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.text-list",
+      "required": true
+    },
+    "isPopular": {
+      "type": "boolean",
+      "default": false,
+      "required": false
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "monthly",
+        "yearly"
+      ],
+      "default": "monthly",
+      "required": true
+    }
+  }
+}

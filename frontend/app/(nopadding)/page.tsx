@@ -7,6 +7,7 @@ import PricingSection from "@/components/pricing/PricingSection";
 import ReviewsSection from "@/components/reviews/ReviewsSection";
 import UseCasesSection from "@/components/usecase/UseCasesSection";
 import { getHomePageContent } from "@/services/getHomePageContent";
+import { getPricingPlanContent } from "@/services/getPricingPlanContent";
 
 // SEO Metadata
 export async function generateMetadata() {
@@ -58,7 +59,11 @@ export async function generateMetadata() {
 }
 
 export default async function Home() {
-	const homeContent = await getHomePageContent();
+	const [homeContent, pricingPlanContent] = await Promise.all([
+		getHomePageContent(),
+		getPricingPlanContent(),
+	]);
+
 
 	return (
 		<main className="flex-grow-1">
@@ -72,7 +77,7 @@ export default async function Home() {
 
 			<ReviewsSection />
 
-			<PricingSection />
+			<PricingSection pricingPlanContent={pricingPlanContent} />
 
 			<FaqSection />
 
