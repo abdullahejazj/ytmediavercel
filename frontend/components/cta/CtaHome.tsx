@@ -1,10 +1,12 @@
-import ctaImage from "@/public/images/screens/screen-1.jpg";
 import ctaShape from "@/public/images/shapes/blurry-shape-4.svg";
+import { getCtaContent } from "@/services/getCtaContent";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "../utils/Reveal";
 
-export default function CtaHome() {
+export default async function CtaHome() {
+	const ctaContent = await getCtaContent();
+
 	return (
 		<Reveal el="section" className="cta-section py-10 py-lg-15">
 			<div className="container">
@@ -15,13 +17,16 @@ export default function CtaHome() {
 					<div className="row justify-center">
 						<div className="col-lg-10">
 							<div className="text-center pt-6 px-6 pt-md-10 px-md-10 pt-lg-18 px-lg-18">
-								<h2 className="mb-6 text-white">
-									Using <span className="text-primary-dark">GenAI</span> you can
-									save hours each week creating long-form content.
-								</h2>
-								<Link href="/login" className="btn btn-primary-dark">
-									Get Started Free
-								</Link>
+								<h2 className="mb-6 text-white">{ctaContent?.heading}</h2>
+								{ctaContent?.button?.variant === "contained" && (
+									<Link
+										href={ctaContent?.button?.href || "#"}
+										target={ctaContent?.button?.target}
+										className="btn btn-primary-dark"
+									>
+										{ctaContent?.button?.label}
+									</Link>
+								)}
 								<div className="cta-image-container mt-10">
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +58,10 @@ export default function CtaHome() {
 									<div className="cta-img rounded-top-4">
 										<Image
 											placeholder="blur"
-											src={ctaImage}
+											blurDataURL={ctaContent?.image?.url || ""}
+											src={ctaContent?.image?.url || ""}
+											width={1080}
+											height={720}
 											alt="shape"
 											className="img-fluid w-full h-full object-cover"
 										/>

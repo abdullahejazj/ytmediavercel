@@ -808,6 +808,31 @@ export interface ApiCaseCase extends Schema.CollectionType {
   };
 }
 
+export interface ApiCtaCta extends Schema.SingleType {
+  collectionName: 'ctas';
+  info: {
+    singularName: 'cta';
+    pluralName: 'ctas';
+    displayName: 'CTA';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    heading: Attribute.Text & Attribute.Required;
+    button: Attribute.Component<'shared.button'> & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::cta.cta', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::cta.cta', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiFaqFaq extends Schema.SingleType {
   collectionName: 'faqs';
   info: {
@@ -985,6 +1010,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::case.case': ApiCaseCase;
+      'api::cta.cta': ApiCtaCta;
       'api::faq.faq': ApiFaqFaq;
       'api::favorite-tool.favorite-tool': ApiFavoriteToolFavoriteTool;
       'api::home-page.home-page': ApiHomePageHomePage;
