@@ -64,7 +64,6 @@ export default async function Home() {
 		getPricingPlanContent(),
 	]);
 
-
 	return (
 		<main className="flex-grow-1">
 			<Herosection heroContent={homeContent?.hero} />
