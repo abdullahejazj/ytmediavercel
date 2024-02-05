@@ -74,7 +74,7 @@ export default async function AboutPage() {
 
 			<ReviewsSection />
 
-			<BrandLogoSection2 />
+			<BrandLogoSection2 brand={aboutContent?.brand} />
 
 			<CtaHome />
 		</main>

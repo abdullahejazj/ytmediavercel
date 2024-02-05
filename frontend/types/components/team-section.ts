@@ -1,10 +1,12 @@
 interface SocialLink {
 	id: number;
 	platform: string;
-	href: string;
+	url: string;
+	target: string;
+	icon: Record<string, any>;
 }
 
-interface TeamMember {
+export interface ITeamMember {
 	id: number;
 	name: string;
 	designation: string;
@@ -12,24 +14,10 @@ interface TeamMember {
 	social_links: SocialLink[];
 }
 
-interface TeamData {
-	id: number;
-	heading: string;
-	team_members: TeamMember[];
+export interface ITeamSection {
+	team: {
+		id: number;
+		heading: string;
+		team_members: ITeamMember[];
+	};
 }
-
-const yourData: TeamData = {
-	id: 1,
-	heading: "GenAI. is Powered by a\nDynamic Team.",
-	team_members: [
-		{
-			id: 1,
-			name: "Annette Black",
-			designation: "Digital Marketer",
-			image: {},
-			social_links: [
-				{ type: "twitter", url: "https://twitter.com/annetteblack" },
-			],
-		},
-	],
-};

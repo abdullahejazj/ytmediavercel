@@ -56,8 +56,8 @@ export default async function Footer() {
 													>
 														<Image
 															src={social?.icon?.data?.attributes?.url || ""}
-															width={25}
-															height={25}
+															width={20}
+															height={20}
 															alt={social?.platform}
 														/>
 													</Link>
