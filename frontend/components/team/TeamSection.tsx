@@ -2,7 +2,9 @@ import { dataTeam } from "@/data/team";
 import Reveal from "../utils/Reveal";
 import TeamProfile from "./TeamProfile";
 
-export default function TeamSection() {
+export default function TeamSection({team}) {
+	console.log('Team: ', team)
+
 	return (
 		<section className="pt-10 pt-lg-15">
 			<div className="container">

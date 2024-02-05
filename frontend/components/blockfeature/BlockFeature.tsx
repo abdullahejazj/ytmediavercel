@@ -38,7 +38,7 @@ export default function BlockFeature({
 					</ul>
 					{data?.button ? (
 						<Link
-							href={`${data?.button?.href}`}
+							href={`${data?.button?.url || '#'}`}
 							target={`${data?.button?.target}`}
 							className="arrow-link arrow-link-primary-dark text-primary-dark gap-3"
 						>
@@ -51,7 +51,7 @@ export default function BlockFeature({
 			<Reveal className="col-lg-6" delay={0.25}>
 				<div className="feature-img">
 					<Image
-						src={`${data?.image?.data?.attributes?.url}`}
+						src={`${data?.image?.data?.attributes?.url || ""}`}
 						height={647}
 						width={608}
 						alt="icon"

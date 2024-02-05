@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_components_teams",
+  "info": {
+    "displayName": "Team"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "text",
+      "required": true
+    },
+    "team_members": {
+      "displayName": "Team Member",
+      "type": "component",
+      "repeatable": true,
+      "component": "components.team-member",
+      "required": true
+    }
+  }
+}

@@ -1,5 +1,16 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface ComponentsBrand extends Schema.Component {
+  collectionName: 'components_components_brands';
+  info: {
+    displayName: 'Brand';
+  };
+  attributes: {
+    heading: Attribute.Text & Attribute.Required;
+    logos: Attribute.Component<'shared.image-lists', true> & Attribute.Required;
+  };
+}
+
 export interface ComponentsFaq extends Schema.Component {
   collectionName: 'components_components_questions';
   info: {
@@ -72,6 +83,38 @@ export interface ComponentsReview extends Schema.Component {
   };
 }
 
+export interface ComponentsTeamMember extends Schema.Component {
+  collectionName: 'components_components_team_members';
+  info: {
+    displayName: 'Team Member';
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    designation: Attribute.String & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+    social_links: Attribute.Component<'shared.social-link', true> &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          max: 3;
+        },
+        number
+      >;
+  };
+}
+
+export interface ComponentsTeam extends Schema.Component {
+  collectionName: 'components_components_teams';
+  info: {
+    displayName: 'Team';
+  };
+  attributes: {
+    heading: Attribute.Text & Attribute.Required;
+    team_members: Attribute.Component<'components.team-member', true> &
+      Attribute.Required;
+  };
+}
+
 export interface ComponentsTool extends Schema.Component {
   collectionName: 'components_components_tools';
   info: {
@@ -115,7 +158,7 @@ export interface SectionsHero extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String & Attribute.Required;
+    title: Attribute.String;
     heading: Attribute.Text & Attribute.Required;
     type_writer: Attribute.Component<'shared.type-writer', true> &
       Attribute.Required;
@@ -169,6 +212,28 @@ export interface SectionsUseCases extends Schema.Component {
   };
 }
 
+export interface SharedBreadcrumbLink extends Schema.Component {
+  collectionName: 'components_shared_breadcrumb_links';
+  info: {
+    displayName: 'Breadcrumb Link';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    link: Attribute.String;
+  };
+}
+
+export interface SharedBreadcrumb extends Schema.Component {
+  collectionName: 'components_shared_breadcrumbs';
+  info: {
+    displayName: 'Breadcrumb';
+  };
+  attributes: {
+    label: Attribute.String & Attribute.Required;
+    links: Attribute.Component<'shared.breadcrumb-link', true>;
+  };
+}
+
 export interface SharedButton extends Schema.Component {
   collectionName: 'components_shared_buttons';
   info: {
@@ -180,7 +245,7 @@ export interface SharedButton extends Schema.Component {
       Attribute.Required &
       Attribute.DefaultTo<'contained'>;
     label: Attribute.String & Attribute.Required;
-    href: Attribute.String & Attribute.Required;
+    url: Attribute.String & Attribute.Required;
     target: Attribute.Enumeration<['_self', '_blank']> &
       Attribute.DefaultTo<'_self'>;
   };
@@ -292,10 +357,11 @@ export interface SharedNavLink extends Schema.Component {
   collectionName: 'components_shared_nav_links';
   info: {
     displayName: 'Nav Link';
+    description: '';
   };
   attributes: {
     label: Attribute.String & Attribute.Required;
-    href: Attribute.String & Attribute.Required;
+    url: Attribute.String & Attribute.Required;
     target: Attribute.Enumeration<['_self', '_blank']> &
       Attribute.Required &
       Attribute.DefaultTo<'_self'>;
@@ -342,7 +408,7 @@ export interface SharedSocialLink extends Schema.Component {
     > &
       Attribute.Required;
     icon: Attribute.Media & Attribute.Required;
-    href: Attribute.String & Attribute.Required;
+    url: Attribute.String & Attribute.Required;
     target: Attribute.Enumeration<['_self', '_blank']> &
       Attribute.DefaultTo<'_blank'>;
   };
@@ -385,10 +451,13 @@ export interface SharedVideo extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'components.brand': ComponentsBrand;
       'components.faq': ComponentsFaq;
       'components.feature': ComponentsFeature;
       'components.plan': ComponentsPlan;
       'components.review': ComponentsReview;
+      'components.team-member': ComponentsTeamMember;
+      'components.team': ComponentsTeam;
       'components.tool': ComponentsTool;
       'sections.faqs': SectionsFaqs;
       'sections.features': SectionsFeatures;
@@ -396,6 +465,8 @@ declare module '@strapi/types' {
       'sections.reviews': SectionsReviews;
       'sections.solution': SectionsSolution;
       'sections.use-cases': SectionsUseCases;
+      'shared.breadcrumb-link': SharedBreadcrumbLink;
+      'shared.breadcrumb': SharedBreadcrumb;
       'shared.button': SharedButton;
       'shared.footer-column': SharedFooterColumn;
       'shared.footer-social-column': SharedFooterSocialColumn;

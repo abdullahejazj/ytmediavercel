@@ -42,7 +42,7 @@ export default function BlockFeature2({ index, data, reversed = false }: TBlockF
 						</ul>
 						{linkText && linkUrl ? (
 							<Link
-								href={linkUrl}
+								href={linkUrl || '#'}
 								className="arrow-link arrow-link-primary-dark text-primary-dark gap-3"
 							>
 								<span>{linkText}</span>

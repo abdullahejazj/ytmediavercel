@@ -30,11 +30,11 @@ export default async function FeaturesSection({
 				{favoritesTools?.button?.variant === "contained" && showButton && (
 					<div className="text-center mt-12">
 						<Link
-							href={favoritesTools.button.href}
-							target={favoritesTools.button.target}
+							href={favoritesTools?.button?.url || '#'}
+							target={favoritesTools?.button?.target}
 							className="btn btn-primary-dark"
 						>
-							{favoritesTools.button.label}
+							{favoritesTools?.button?.label}
 						</Link>
 					</div>
 				)}
@@ -56,13 +56,13 @@ export default async function FeaturesSection({
 							/>
 						</div>
 						<Link
-							href={favoritesTools.video.video_url || ""}
+							href={favoritesTools?.video?.video_url || ""}
 							target="_blank"
 							rel="noopener noreferrer"
 						>
 							<Image
 								src={
-									favoritesTools.video.play_icon?.data?.attributes?.url || ""
+									favoritesTools?.video?.play_icon?.data?.attributes?.url || ""
 								}
 								width={115}
 								height={115}

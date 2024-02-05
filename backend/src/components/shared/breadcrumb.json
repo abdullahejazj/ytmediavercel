@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_breadcrumbs",
+  "info": {
+    "displayName": "Breadcrumb"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "links": {
+      "displayName": "Breadcrumb Link",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.breadcrumb-link"
+    }
+  }
+}

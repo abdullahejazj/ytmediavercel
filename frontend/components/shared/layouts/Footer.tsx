@@ -27,7 +27,7 @@ export default async function Footer() {
 												<li key={link?.id}>
 													<Link
 														key={link?.id}
-														href={link?.href || ""}
+														href={link?.url || "#"}
 														target={link?.target || "_self"}
 													>
 														{link?.label}
@@ -51,7 +51,7 @@ export default async function Footer() {
 											(social: any) => (
 												<li key={social?.id}>
 													<Link
-														href={social?.href || ""}
+														href={social?.url || "#"}
 														target={social?.target || "_blank"}
 													>
 														<Image

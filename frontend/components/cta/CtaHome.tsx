@@ -20,7 +20,7 @@ export default async function CtaHome() {
 								<h2 className="mb-6 text-white">{ctaContent?.heading}</h2>
 								{ctaContent?.button?.variant === "contained" && (
 									<Link
-										href={ctaContent?.button?.href || "#"}
+										href={ctaContent?.button?.url || "#"}
 										target={ctaContent?.button?.target}
 										className="btn btn-primary-dark"
 									>

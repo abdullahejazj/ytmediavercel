@@ -1,7 +1,8 @@
 {
   "collectionName": "components_shared_nav_links",
   "info": {
-    "displayName": "Nav Link"
+    "displayName": "Nav Link",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -9,7 +10,7 @@
       "type": "string",
       "required": true
     },
-    "href": {
+    "url": {
       "type": "string",
       "required": true
     },

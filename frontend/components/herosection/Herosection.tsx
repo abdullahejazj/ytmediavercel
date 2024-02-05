@@ -29,7 +29,7 @@ export default function Herosection({ heroContent }: IHeroSection) {
 								{heroContent?.button?.variant === "contained" && (
 									<Reveal delay={0.3}>
 										<Link
-											href={`${heroContent?.button?.href}`}
+											href={heroContent?.button?.url || "#"}
 											target={`${heroContent?.button?.target}`}
 											className="btn btn-lg btn-gradient-1"
 										>

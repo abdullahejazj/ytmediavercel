@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_breadcrumb_links",
+  "info": {
+    "displayName": "Breadcrumb Link"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_components_brands",
+  "info": {
+    "displayName": "Brand"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "text",
+      "required": true
+    },
+    "logos": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.image-lists",
+      "required": true
+    }
+  }
+}

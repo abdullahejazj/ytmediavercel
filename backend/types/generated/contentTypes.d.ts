@@ -781,6 +781,52 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAboutPageAboutPage extends Schema.SingleType {
+  collectionName: 'about_pages';
+  info: {
+    singularName: 'about-page';
+    pluralName: 'about-pages';
+    displayName: 'About Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    breadcrumb: Attribute.Component<'shared.breadcrumb'> & Attribute.Required;
+    title: Attribute.String;
+    heading: Attribute.Text & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    button: Attribute.Component<'shared.button'> & Attribute.Required;
+    hero_image: Attribute.Media & Attribute.Required;
+    images: Attribute.Component<'shared.image-lists', true> &
+      Attribute.SetMinMax<
+        {
+          max: 2;
+        },
+        number
+      >;
+    team: Attribute.Component<'components.team'> & Attribute.Required;
+    brand: Attribute.Component<'components.brand'> & Attribute.Required;
+    seo: Attribute.Component<'shared.seo'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::about-page.about-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::about-page.about-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiBrandLogoBrandLogo extends Schema.SingleType {
   collectionName: 'brand_logos';
   info: {
@@ -1082,6 +1128,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::about-page.about-page': ApiAboutPageAboutPage;
       'api::brand-logo.brand-logo': ApiBrandLogoBrandLogo;
       'api::case.case': ApiCaseCase;
       'api::cta.cta': ApiCtaCta;

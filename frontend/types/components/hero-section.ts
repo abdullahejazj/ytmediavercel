@@ -7,7 +7,7 @@ interface Button {
 	id: number;
 	variant: string;
 	label: string;
-	href: string;
+	url: string;
 	target: string;
 }
 
