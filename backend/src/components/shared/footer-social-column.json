@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_footer_social_columns",
+  "info": {
+    "displayName": "Footer Social Column",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "social_links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.social-link",
+      "required": true,
+      "max": 5,
+      "min": 3
+    }
+  }
+}

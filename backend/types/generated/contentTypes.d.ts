@@ -781,6 +781,36 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiBrandLogoBrandLogo extends Schema.SingleType {
+  collectionName: 'brand_logos';
+  info: {
+    singularName: 'brand-logo';
+    pluralName: 'brand-logos';
+    displayName: 'Brand Logo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    logo: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::brand-logo.brand-logo',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::brand-logo.brand-logo',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCaseCase extends Schema.CollectionType {
   collectionName: 'cases';
   info: {
@@ -839,6 +869,7 @@ export interface ApiFaqFaq extends Schema.SingleType {
     singularName: 'faq';
     pluralName: 'faqs';
     displayName: 'Faqs';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1051,6 +1082,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::brand-logo.brand-logo': ApiBrandLogoBrandLogo;
       'api::case.case': ApiCaseCase;
       'api::cta.cta': ApiCtaCta;
       'api::faq.faq': ApiFaqFaq;

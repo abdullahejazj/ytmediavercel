@@ -46,10 +46,6 @@ export default async function FeaturesSection({
 					>
 						<div className="ratio ratio-16x9 rounded-4 overflow-hidden mt-16">
 							<Image
-								placeholder="blur"
-								blurDataURL={
-									favoritesTools.video.thumbnail?.data?.attributes?.url || ""
-								}
 								src={
 									favoritesTools.video.thumbnail?.data?.attributes?.url || ""
 								}

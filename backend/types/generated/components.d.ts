@@ -190,10 +190,31 @@ export interface SharedFooterColumn extends Schema.Component {
   collectionName: 'components_shared_footer_columns';
   info: {
     displayName: 'Footer Column';
+    description: '';
   };
   attributes: {
     label: Attribute.String & Attribute.Required;
-    links: Attribute.Component<'shared.nav-link', true> & Attribute.Required;
+    links: Attribute.Component<'shared.nav-link', true>;
+  };
+}
+
+export interface SharedFooterSocialColumn extends Schema.Component {
+  collectionName: 'components_shared_footer_social_columns';
+  info: {
+    displayName: 'Footer Social Column';
+    description: '';
+  };
+  attributes: {
+    label: Attribute.String & Attribute.Required;
+    social_links: Attribute.Component<'shared.social-link', true> &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 3;
+          max: 5;
+        },
+        number
+      >;
   };
 }
 
@@ -205,7 +226,17 @@ export interface SharedFooter extends Schema.Component {
   attributes: {
     brand_logo: Attribute.Media & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
-    footer_columns: Attribute.Component<'shared.footer-column', true>;
+    copyright_text: Attribute.String & Attribute.Required;
+    footer_columns: Attribute.Component<'shared.footer-column', true> &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          max: 2;
+        },
+        number
+      >;
+    footer_social_column: Attribute.Component<'shared.footer-social-column'> &
+      Attribute.Required;
   };
 }
 
@@ -367,6 +398,7 @@ declare module '@strapi/types' {
       'sections.use-cases': SectionsUseCases;
       'shared.button': SharedButton;
       'shared.footer-column': SharedFooterColumn;
+      'shared.footer-social-column': SharedFooterSocialColumn;
       'shared.footer': SharedFooter;
       'shared.header': SharedHeader;
       'shared.image-lists': SharedImageLists;

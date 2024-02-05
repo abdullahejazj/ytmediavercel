@@ -7,7 +7,7 @@ type TRootLayoutProps = {
 	children: React.ReactNode;
 };
 
-export default function WithLayoutPages({ children }: TRootLayoutProps) {
+export default async function WithLayoutPages({ children }: TRootLayoutProps) {
 	return (
 		<WithoutPaddingLayout>
 			<Header />

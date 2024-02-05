@@ -15,10 +15,22 @@
       "type": "text",
       "required": true
     },
+    "copyright_text": {
+      "type": "string",
+      "required": true
+    },
     "footer_columns": {
       "type": "component",
       "repeatable": true,
-      "component": "shared.footer-column"
+      "component": "shared.footer-column",
+      "required": true,
+      "max": 2
+    },
+    "footer_social_column": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.footer-social-column",
+      "required": true
     }
   }
 }
