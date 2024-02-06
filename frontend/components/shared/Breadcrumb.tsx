@@ -4,7 +4,7 @@ import Reveal from "../utils/Reveal";
 type TBreadcrumbProps = {
 	title: string;
 	path: {
-		id: number | string;
+		id?: number | string;
 		title: string;
 		link?: string;
 	}[];

@@ -1,6 +1,13 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect } from "react";
 
 export default function ForgotPassword() {
+	useEffect(() => {
+		document.title = "Forgot Password";
+	}, []);
+
 	return (
 		<div className="account-wrapper h-full d-flex flex-column justify-center">
 			<div className="text-center">

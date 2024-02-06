@@ -2,9 +2,10 @@
 
 import appleIcon from "@/public/images/icons/apple.svg";
 import googleIcon from "@/public/images/icons/google.svg";
-import siteLogo from "@/public/images/logo.png";
+import { getBrandLogo } from "@/services/getHomePageContent";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 type TFormData = {
@@ -18,31 +19,52 @@ export default function LoginPage() {
 		handleSubmit,
 		formState: { errors, isSubmitting },
 	} = useForm<TFormData>();
+	const [brandLogo, setBrandLogo] = useState("");
 
 	const onSubmit = (data: TFormData) => {
 		console.log(data);
 	};
+
+	const fetchBrandLogo = async () => {
+		const data = await getBrandLogo();
+		setBrandLogo(data?.logo?.url);
+	};
+
+	useEffect(() => {
+		document.title = "Login Now";
+		fetchBrandLogo();
+	}, []);
 
 	return (
 		<div className="account-wrapper h-full d-flex flex-column justify-center">
 			<div className="text-center">
 				<Link href="/">
 					<Image
-						placeholder="blur"
-						src={siteLogo}
+						src={brandLogo || ""}
 						alt="GenAi"
 						className="img-fluid"
-						height={42}
+						width={160}
+						height={60}
 						priority
 					/>
 				</Link>
 				<div className="vstack gap-4 mt-10">
 					<button type="button" className="btn account-btn py-4">
-						<Image src={googleIcon} alt="icon" height={24} className="icon w-auto" />
+						<Image
+							src={googleIcon}
+							alt="icon"
+							height={24}
+							className="icon w-auto"
+						/>
 						<span>Continue With Google</span>
 					</button>
 					<button type="button" className="btn account-btn py-4">
-						<Image src={appleIcon} alt="icon" height={24} className="icon w-auto" />
+						<Image
+							src={appleIcon}
+							alt="icon"
+							height={24}
+							className="icon w-auto"
+						/>
 						<span>Continue With Apple</span>
 					</button>
 				</div>
@@ -99,7 +121,9 @@ export default function LoginPage() {
 							/>
 						</div>
 						{errors.password?.message && (
-							<p className="fs-sm text-warning mb-0">{errors.password?.message}</p>
+							<p className="fs-sm text-warning mb-0">
+								{errors.password?.message}
+							</p>
 						)}
 						<div className="form-text mt-2">
 							<Link href="/forgot-password" className="text-decoration-none">

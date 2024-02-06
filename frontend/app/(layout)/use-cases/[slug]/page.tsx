@@ -41,15 +41,15 @@ export default function UsecaseDetails({ params }: TBlogDetailsPageProps) {
 				title={title}
 				path={[
 					{
-						text: "Home",
+						title: "Home",
 						link: "/",
 					},
 					{
-						text: "Use cases",
+						title: "Use cases",
 						link: "/use-cases",
 					},
 					{
-						text: title,
+						title: title,
 					},
 				]}
 			/>

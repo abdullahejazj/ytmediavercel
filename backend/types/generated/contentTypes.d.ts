@@ -827,6 +827,38 @@ export interface ApiAboutPageAboutPage extends Schema.SingleType {
   };
 }
 
+export interface ApiAuthPageAuthPage extends Schema.SingleType {
+  collectionName: 'auth_pages';
+  info: {
+    singularName: 'auth-page';
+    pluralName: 'auth-pages';
+    displayName: 'Auth Pages';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    heading: Attribute.Text & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::auth-page.auth-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::auth-page.auth-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiBrandLogoBrandLogo extends Schema.SingleType {
   collectionName: 'brand_logos';
   info: {
@@ -1225,6 +1257,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about-page.about-page': ApiAboutPageAboutPage;
+      'api::auth-page.auth-page': ApiAuthPageAuthPage;
       'api::brand-logo.brand-logo': ApiBrandLogoBrandLogo;
       'api::case.case': ApiCaseCase;
       'api::contact-page.contact-page': ApiContactPageContactPage;

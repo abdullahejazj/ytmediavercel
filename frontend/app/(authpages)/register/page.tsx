@@ -2,9 +2,10 @@
 
 import appleIcon from "@/public/images/icons/apple.svg";
 import googleIcon from "@/public/images/icons/google.svg";
-import siteLogo from "@/public/images/logo.png";
+import { getBrandLogo } from "@/services/getHomePageContent";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 type TFormData = {
@@ -20,6 +21,7 @@ export default function RegisterPage() {
 		formState: { errors, isSubmitting },
 		setError,
 	} = useForm<TFormData>();
+	const [brandLogo, setBrandLogo] = useState("");
 
 	const onSubmit = (data: TFormData) => {
 		if (data.password !== data.confirmPassword) {
@@ -32,26 +34,46 @@ export default function RegisterPage() {
 		console.log(data);
 	};
 
+	const fetchBrandLogo = async () => {
+		const data = await getBrandLogo();
+		setBrandLogo(data?.logo?.url);
+	};
+
+	useEffect(() => {
+		document.title = "Register Now";
+		fetchBrandLogo();
+	}, []);
+
 	return (
 		<div className="account-wrapper h-full d-flex flex-column justify-center">
 			<div className="text-center">
 				<Link href="/">
 					<Image
-						placeholder="blur"
-						src={siteLogo}
-						alt="GenAi"
+						src={brandLogo || ""}
+						alt="Logo"
 						className="img-fluid"
-						height={42}
+						width={160}
+						height={60}
 						priority
 					/>
 				</Link>
 				<div className="vstack gap-4 mt-10">
 					<button type="button" className="btn account-btn py-4">
-						<Image src={googleIcon} alt="" width="24" className="img-fluid icon" />
+						<Image
+							src={googleIcon}
+							alt=""
+							width="24"
+							className="img-fluid icon"
+						/>
 						<span>Continue With Google</span>
 					</button>
 					<button type="button" className="btn account-btn py-4">
-						<Image src={appleIcon} alt="icon" height="24" className="img-fluid icon" />
+						<Image
+							src={appleIcon}
+							alt="icon"
+							height="24"
+							className="img-fluid icon"
+						/>
 						<span>Continue With Apple</span>
 					</button>
 				</div>
@@ -108,7 +130,9 @@ export default function RegisterPage() {
 							/>
 						</div>
 						{errors.password?.message && (
-							<p className="fs-sm text-warning mb-0">{errors.password?.message}</p>
+							<p className="fs-sm text-warning mb-0">
+								{errors.password?.message}
+							</p>
 						)}
 					</div>
 					<div className="text-start">

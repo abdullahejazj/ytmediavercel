@@ -1,6 +1,6 @@
 import WithoutPaddingLayout from "@/components/shared/layouts/WithoutPaddingLayout";
 import Reveal from "@/components/utils/Reveal";
-import screenImage from "@/public/images/screens/screen-5.png";
+import { getAuthPagesContent } from "@/services/getAuthPagesContent";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -9,7 +9,11 @@ type TAuthPageLayoutProps = {
 	children: React.ReactNode;
 };
 
-export default function AuthPageLayout({ children }: TAuthPageLayoutProps) {
+export default async function AuthPageLayout({
+	children,
+}: TAuthPageLayoutProps) {
+	const authPageContent = await getAuthPagesContent();
+
 	return (
 		<WithoutPaddingLayout>
 			<main className="flex-grow-1">
@@ -19,14 +23,15 @@ export default function AuthPageLayout({ children }: TAuthPageLayoutProps) {
 							<Reveal className="col-lg-6 d-none d-lg-block" delay={0.05}>
 								<div className="bg-dark-blue-4 border rounded-4 h-full p-6 p-md-20 text-center d-flex flex-column justify-center">
 									<h2 className="text-white mb-12">
-										Unlock the Power of <br className="d-none d-xl-block" />
-										<span className="text-primary-dark">GenAI</span> Copywriting
-										Tool
+										{authPageContent?.heading}
 									</h2>
 									<Image
 										placeholder="blur"
-										src={screenImage}
+										blurDataURL={authPageContent?.image?.url || ""}
+										src={authPageContent?.image?.url || ""}
 										alt="screen"
+										width={1080}
+										height={720}
 										className="img-fluid w-full"
 									/>
 								</div>
