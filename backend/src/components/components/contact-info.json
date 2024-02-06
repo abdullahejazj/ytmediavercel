@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_components_contact_infos",
+  "info": {
+    "displayName": "Contact Info",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "contact_address": {
+      "displayName": "Contact Address",
+      "type": "component",
+      "repeatable": false,
+      "component": "components.contact-address",
+      "required": true
+    },
+    "contact_number": {
+      "displayName": "Contact Number",
+      "type": "component",
+      "repeatable": false,
+      "component": "components.contact-number"
+    },
+    "map_url": {
+      "displayName": "Map url",
+      "type": "text",
+      "required": false
+    }
+  }
+}

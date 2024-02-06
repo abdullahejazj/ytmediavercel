@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_components_contact_numbers",
+  "info": {
+    "displayName": "Contact Number",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "numbers": {
+      "displayName": "Numbers",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.text-list",
+      "required": true
+    }
+  }
+}

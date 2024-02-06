@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "use_cases_pages",
+  "info": {
+    "singularName": "use-cases-page",
+    "pluralName": "use-cases-pages",
+    "displayName": "Use Cases Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "breadcrumb": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.breadcrumb",
+      "required": true
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}

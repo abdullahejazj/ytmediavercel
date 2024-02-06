@@ -9,10 +9,11 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
 	title: {
-		template: "%s | GenAi",
+		template: "%s",
 		default: "GenAi",
 	},
-	description: "AI Based Copywriting and Content Writing Nextjs Landing Page Template",
+	description:
+		"AI Based Copywriting and Content Writing Nextjs Landing Page Template",
 };
 
 type TRootLayoutProps = {
@@ -27,7 +28,9 @@ export default function RootLayout({ children }: TRootLayoutProps) {
 			</head>
 			<body>
 				<RootClientLayout>
-					<div className="wrapper d-flex flex-column justify-between">{children}</div>
+					<div className="wrapper d-flex flex-column justify-between">
+						{children}
+					</div>
 				</RootClientLayout>
 				{process.env.SWITCHER_LINK ? (
 					<Link

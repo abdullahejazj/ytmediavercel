@@ -11,6 +11,43 @@ export interface ComponentsBrand extends Schema.Component {
   };
 }
 
+export interface ComponentsContactAddress extends Schema.Component {
+  collectionName: 'components_components_contact_addresses';
+  info: {
+    displayName: 'Contact Address';
+  };
+  attributes: {
+    icon: Attribute.Media & Attribute.Required;
+    address: Attribute.Text & Attribute.Required;
+  };
+}
+
+export interface ComponentsContactInfo extends Schema.Component {
+  collectionName: 'components_components_contact_infos';
+  info: {
+    displayName: 'Contact Info';
+    description: '';
+  };
+  attributes: {
+    contact_address: Attribute.Component<'components.contact-address'> &
+      Attribute.Required;
+    contact_number: Attribute.Component<'components.contact-number'>;
+    map_url: Attribute.Text;
+  };
+}
+
+export interface ComponentsContactNumber extends Schema.Component {
+  collectionName: 'components_components_contact_numbers';
+  info: {
+    displayName: 'Contact Number';
+    description: '';
+  };
+  attributes: {
+    icon: Attribute.Media & Attribute.Required;
+    numbers: Attribute.Component<'shared.text-list', true> & Attribute.Required;
+  };
+}
+
 export interface ComponentsFaq extends Schema.Component {
   collectionName: 'components_components_questions';
   info: {
@@ -452,6 +489,9 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'components.brand': ComponentsBrand;
+      'components.contact-address': ComponentsContactAddress;
+      'components.contact-info': ComponentsContactInfo;
+      'components.contact-number': ComponentsContactNumber;
       'components.faq': ComponentsFaq;
       'components.feature': ComponentsFeature;
       'components.plan': ComponentsPlan;

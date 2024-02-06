@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "pricing_plan_pages",
+  "info": {
+    "singularName": "pricing-plan-page",
+    "pluralName": "pricing-plan-pages",
+    "displayName": "Pricing Plan Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "breadcrumb": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.breadcrumb",
+      "required": true
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo",
+      "required": true
+    }
+  }
+}

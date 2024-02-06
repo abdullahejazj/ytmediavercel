@@ -884,6 +884,40 @@ export interface ApiCaseCase extends Schema.CollectionType {
   };
 }
 
+export interface ApiContactPageContactPage extends Schema.SingleType {
+  collectionName: 'contact_pages';
+  info: {
+    singularName: 'contact-page';
+    pluralName: 'contact-pages';
+    displayName: 'Contact Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    breadcrumb: Attribute.Component<'shared.breadcrumb'> & Attribute.Required;
+    contact_details: Attribute.Component<'components.contact-info'> &
+      Attribute.Required;
+    seo: Attribute.Component<'shared.seo'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact-page.contact-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact-page.contact-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCtaCta extends Schema.SingleType {
   collectionName: 'ctas';
   info: {
@@ -1044,6 +1078,37 @@ export interface ApiPricingPlanPricingPlan extends Schema.SingleType {
   };
 }
 
+export interface ApiPricingPlanPagePricingPlanPage extends Schema.SingleType {
+  collectionName: 'pricing_plan_pages';
+  info: {
+    singularName: 'pricing-plan-page';
+    pluralName: 'pricing-plan-pages';
+    displayName: 'Pricing Plan Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    breadcrumb: Attribute.Component<'shared.breadcrumb'> & Attribute.Required;
+    seo: Attribute.Component<'shared.seo'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pricing-plan-page.pricing-plan-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pricing-plan-page.pricing-plan-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiReviewReview extends Schema.SingleType {
   collectionName: 'reviews';
   info: {
@@ -1110,6 +1175,37 @@ export interface ApiUseCaseUseCase extends Schema.SingleType {
   };
 }
 
+export interface ApiUseCasesPageUseCasesPage extends Schema.SingleType {
+  collectionName: 'use_cases_pages';
+  info: {
+    singularName: 'use-cases-page';
+    pluralName: 'use-cases-pages';
+    displayName: 'Use Cases Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    breadcrumb: Attribute.Component<'shared.breadcrumb'> & Attribute.Required;
+    seo: Attribute.Component<'shared.seo'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::use-cases-page.use-cases-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::use-cases-page.use-cases-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1131,13 +1227,16 @@ declare module '@strapi/types' {
       'api::about-page.about-page': ApiAboutPageAboutPage;
       'api::brand-logo.brand-logo': ApiBrandLogoBrandLogo;
       'api::case.case': ApiCaseCase;
+      'api::contact-page.contact-page': ApiContactPageContactPage;
       'api::cta.cta': ApiCtaCta;
       'api::faq.faq': ApiFaqFaq;
       'api::favorite-tool.favorite-tool': ApiFavoriteToolFavoriteTool;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::pricing-plan.pricing-plan': ApiPricingPlanPricingPlan;
+      'api::pricing-plan-page.pricing-plan-page': ApiPricingPlanPagePricingPlanPage;
       'api::review.review': ApiReviewReview;
       'api::use-case.use-case': ApiUseCaseUseCase;
+      'api::use-cases-page.use-cases-page': ApiUseCasesPageUseCasesPage;
     }
   }
 }

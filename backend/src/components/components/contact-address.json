@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_components_contact_addresses",
+  "info": {
+    "displayName": "Contact Address"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "address": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
