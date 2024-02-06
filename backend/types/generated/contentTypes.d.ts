@@ -859,6 +859,69 @@ export interface ApiAuthPageAuthPage extends Schema.SingleType {
   };
 }
 
+export interface ApiBlogBlog extends Schema.CollectionType {
+  collectionName: 'blogs';
+  info: {
+    singularName: 'blog';
+    pluralName: 'blogs';
+    displayName: 'Blogs';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.Text & Attribute.Required;
+    slug: Attribute.UID<'api::blog.blog', 'title'> & Attribute.Required;
+    thumbnail: Attribute.Media & Attribute.Required;
+    content: Attribute.RichText & Attribute.Required;
+    category: Attribute.Relation<
+      'api::blog.blog',
+      'manyToOne',
+      'api::category.category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBlogPageBlogPage extends Schema.SingleType {
+  collectionName: 'blog_pages';
+  info: {
+    singularName: 'blog-page';
+    pluralName: 'blog-pages';
+    displayName: 'Blog Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    breadcrumb: Attribute.Component<'shared.breadcrumb'> & Attribute.Required;
+    seo: Attribute.Component<'shared.seo'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::blog-page.blog-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::blog-page.blog-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiBrandLogoBrandLogo extends Schema.SingleType {
   collectionName: 'brand_logos';
   info: {
@@ -912,6 +975,42 @@ export interface ApiCaseCase extends Schema.CollectionType {
     createdBy: Attribute.Relation<'api::case.case', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::case.case', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCategoryCategory extends Schema.CollectionType {
+  collectionName: 'categories';
+  info: {
+    singularName: 'category';
+    pluralName: 'categories';
+    displayName: 'Category';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    blogs: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::blog.blog'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -1258,8 +1357,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about-page.about-page': ApiAboutPageAboutPage;
       'api::auth-page.auth-page': ApiAuthPageAuthPage;
+      'api::blog.blog': ApiBlogBlog;
+      'api::blog-page.blog-page': ApiBlogPageBlogPage;
       'api::brand-logo.brand-logo': ApiBrandLogoBrandLogo;
       'api::case.case': ApiCaseCase;
+      'api::category.category': ApiCategoryCategory;
       'api::contact-page.contact-page': ApiContactPageContactPage;
       'api::cta.cta': ApiCtaCta;
       'api::faq.faq': ApiFaqFaq;

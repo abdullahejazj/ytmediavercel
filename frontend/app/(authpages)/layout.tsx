@@ -12,7 +12,7 @@ type TAuthPageLayoutProps = {
 export default async function AuthPageLayout({
 	children,
 }: TAuthPageLayoutProps) {
-	const authPageContent = await getAuthPagesContent();
+	const authPageContent = await getAuthPagesContent();	
 
 	return (
 		<WithoutPaddingLayout>
