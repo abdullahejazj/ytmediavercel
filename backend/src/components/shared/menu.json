@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_menus",
+  "info": {
+    "displayName": "Menu",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "string",
+      "required": false
+    },
+    "dropdown_menu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.link"
+    },
+    "two_cols": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

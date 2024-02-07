@@ -15,31 +15,32 @@
     "header": {
       "type": "component",
       "repeatable": false,
-      "component": "shared.header",
-      "required": false
-    },
-    "footer": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.footer",
-      "required": false
+      "component": "components.header",
+      "required": true
     },
     "hero": {
       "type": "component",
       "repeatable": false,
       "component": "sections.hero",
-      "required": false
+      "required": true
     },
     "features": {
       "type": "component",
       "repeatable": false,
-      "component": "sections.features"
+      "component": "sections.features",
+      "required": true
+    },
+    "footer": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.footer",
+      "required": true
     },
     "seo": {
       "type": "component",
       "repeatable": false,
       "component": "shared.seo",
-      "required": false
+      "required": true
     }
   }
 }

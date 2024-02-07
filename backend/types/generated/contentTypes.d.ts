@@ -1143,11 +1143,11 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    header: Attribute.Component<'shared.header'>;
-    footer: Attribute.Component<'shared.footer'>;
-    hero: Attribute.Component<'sections.hero'>;
-    features: Attribute.Component<'sections.features'>;
-    seo: Attribute.Component<'shared.seo'>;
+    header: Attribute.Component<'components.header'> & Attribute.Required;
+    hero: Attribute.Component<'sections.hero'> & Attribute.Required;
+    features: Attribute.Component<'sections.features'> & Attribute.Required;
+    footer: Attribute.Component<'shared.footer'> & Attribute.Required;
+    seo: Attribute.Component<'shared.seo'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

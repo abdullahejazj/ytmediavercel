@@ -77,6 +77,17 @@ export interface ComponentsFeature extends Schema.Component {
   };
 }
 
+export interface ComponentsHeader extends Schema.Component {
+  collectionName: 'components_components_headers';
+  info: {
+    displayName: 'Header';
+  };
+  attributes: {
+    nav_links: Attribute.Component<'shared.menu', true> & Attribute.Required;
+    button: Attribute.Component<'shared.button'> & Attribute.Required;
+  };
+}
+
 export interface ComponentsPlan extends Schema.Component {
   collectionName: 'components_components_plans';
   info: {
@@ -342,20 +353,6 @@ export interface SharedFooter extends Schema.Component {
   };
 }
 
-export interface SharedHeader extends Schema.Component {
-  collectionName: 'components_shared_headers';
-  info: {
-    displayName: 'Header';
-    description: '';
-  };
-  attributes: {
-    brand_logo: Attribute.Media & Attribute.Required;
-    nav_links: Attribute.Component<'shared.nav-link', true> &
-      Attribute.Required;
-    button: Attribute.Component<'shared.button'> & Attribute.Required;
-  };
-}
-
 export interface SharedImageLists extends Schema.Component {
   collectionName: 'components_shared_image_lists';
   info: {
@@ -364,6 +361,31 @@ export interface SharedImageLists extends Schema.Component {
   };
   attributes: {
     image: Attribute.Media & Attribute.Required;
+  };
+}
+
+export interface SharedLink extends Schema.Component {
+  collectionName: 'components_shared_links';
+  info: {
+    displayName: 'Link';
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    link: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface SharedMenu extends Schema.Component {
+  collectionName: 'components_shared_menus';
+  info: {
+    displayName: 'Menu';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    link: Attribute.String;
+    dropdown_menu: Attribute.Component<'shared.link', true>;
+    two_cols: Attribute.Boolean & Attribute.DefaultTo<false>;
   };
 }
 
@@ -494,6 +516,7 @@ declare module '@strapi/types' {
       'components.contact-number': ComponentsContactNumber;
       'components.faq': ComponentsFaq;
       'components.feature': ComponentsFeature;
+      'components.header': ComponentsHeader;
       'components.plan': ComponentsPlan;
       'components.review': ComponentsReview;
       'components.team-member': ComponentsTeamMember;
@@ -511,8 +534,9 @@ declare module '@strapi/types' {
       'shared.footer-column': SharedFooterColumn;
       'shared.footer-social-column': SharedFooterSocialColumn;
       'shared.footer': SharedFooter;
-      'shared.header': SharedHeader;
       'shared.image-lists': SharedImageLists;
+      'shared.link': SharedLink;
+      'shared.menu': SharedMenu;
       'shared.meta-social': SharedMetaSocial;
       'shared.nav-link': SharedNavLink;
       'shared.seo': SharedSeo;

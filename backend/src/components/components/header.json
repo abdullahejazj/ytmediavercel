@@ -1,23 +1,14 @@
 {
-  "collectionName": "components_shared_headers",
+  "collectionName": "components_components_headers",
   "info": {
-    "displayName": "Header",
-    "description": ""
+    "displayName": "Header"
   },
   "options": {},
   "attributes": {
-    "brand_logo": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "nav_links": {
       "type": "component",
       "repeatable": true,
-      "component": "shared.nav-link",
+      "component": "shared.menu",
       "required": true
     },
     "button": {
