@@ -10,7 +10,6 @@ type TBlogItemProps = {
 
 export default function BlogItem({ data }: TBlogItemProps) {
 	const { title, content, category, createdAt, slug, thumbnail } = data;
-	console.log("Data: ", data);
 
 	return (
 		<div className="blog-card card border-0">

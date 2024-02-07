@@ -48,28 +48,28 @@ const LIMIT_PER_PAGE = 9;
 // 	};
 // };
 
-// export const getPostData = (slug: string): TPostData => {
-// 	const fileContents = fs.readFileSync(
-// 		path.join(FOLDER_PATH, `${slug}.md`),
-// 		"utf-8"
-// 	);
-// 	const { data: postMeta, content: postContent } = matter(fileContents);
+export const getPostData = (slug: string): TPostData => {
+	const fileContents = fs.readFileSync(
+		path.join(FOLDER_PATH, `${slug}.md`),
+		"utf-8"
+	);
+	const { data: postMeta, content: postContent } = matter(fileContents);
 
-// 	return {
-// 		title: postMeta.title,
-// 		category: postMeta.category,
-// 		date: postMeta.date,
-// 		thumbnail: postMeta.thumbnail,
-// 		slug: slug,
-// 		readingTime: readingTime(postContent).text,
-// 		author: {
-// 			name: postMeta.author.name,
-// 			avatar: postMeta.author.avatar,
-// 		},
-// 		content: postContent,
-// 		cover: postMeta.cover,
-// 	};
-// };
+	return {
+		title: postMeta.title,
+		category: postMeta.category,
+		date: postMeta.date,
+		thumbnail: postMeta.thumbnail,
+		slug: slug,
+		readingTime: readingTime(postContent).text,
+		author: {
+			name: postMeta.author.name,
+			avatar: postMeta.author.avatar,
+		},
+		content: postContent,
+		cover: postMeta.cover,
+	};
+};
 
 interface BlogPost {
 	id: number;

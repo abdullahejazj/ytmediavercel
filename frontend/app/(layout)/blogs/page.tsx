@@ -67,7 +67,6 @@ export default async function BlogsPage({ searchParams }: TBlogPageProps) {
 	]);
 
 	const pageNumber = parseInt(searchParams?.page) || 1;
-	// const { posts, totalPage } = getPostsMetadata(pageNumber);
 	const { totalPage, blogPosts } = paginateBlogPosts(pageNumber, allBlogs, 6);
 
 	return (
