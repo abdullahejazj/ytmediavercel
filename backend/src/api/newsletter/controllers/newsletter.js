@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * use-case controller
+ * newsletter controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::use-case.use-case');
+module.exports = createCoreController('api::newsletter.newsletter');

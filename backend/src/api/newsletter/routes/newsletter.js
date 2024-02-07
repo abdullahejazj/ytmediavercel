@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * use-case router
+ * newsletter router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::use-case.use-case');
+module.exports = createCoreRouter('api::newsletter.newsletter');

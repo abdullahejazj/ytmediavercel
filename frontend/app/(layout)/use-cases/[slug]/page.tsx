@@ -1,14 +1,10 @@
 import CtaHome from "@/components/cta/CtaHome";
 import FaqSection from "@/components/faq/FaqSection";
+import NewsletterSection from "@/components/newsletter/NewsletterSection";
 import ReviewsSection from "@/components/reviews/ReviewsSection";
 import Breadcrumb from "@/components/shared/Breadcrumb";
-import Newsletter from "@/components/utils/Newsletter";
-import Reveal from "@/components/utils/Reveal";
-import chatScreenImage from "@/public/images/screens/screen-3.png";
-import { getusecaseData } from "@/utils/usecases";
+import { getUseCaseBySlug } from "@/services/getUseCasesContent";
 import Markdown from "markdown-to-jsx";
-import { Metadata } from "next";
-import Image from "next/image";
 
 type TBlogDetailsPageProps = {
 	params: {
@@ -22,18 +18,55 @@ type TGenerateMetadataProps = {
 	};
 };
 
-export function generateMetadata({ params }: TGenerateMetadataProps): Metadata {
-	const { slug: slugFromUrl } = params;
-	const { title } = getusecaseData(slugFromUrl);
+// SEO Metadata
+export async function generateMetadata({ params }: TBlogDetailsPageProps) {
+	const { slug } = params;
+
+	const blogPost = await getUseCaseBySlug(slug);
+	const { title, icon, content } = blogPost?.[0];
 
 	return {
-		title: title,
+		title,
+		description: content,
+		keywords: [title],
+		openGraph: {
+			title,
+			description: title,
+			siteName: "GenAI",
+			images: [icon?.url],
+		},
+		robots: {
+			index: false,
+			follow: true,
+			nocache: true,
+			googleBot: {
+				index: true,
+				follow: false,
+				noimageindex: true,
+				"max-video-preview": -1,
+				"max-image-preview": "large",
+				"max-snippet": -1,
+			},
+		},
+		authors: [
+			{
+				name: "Omar Faruq",
+			},
+			{
+				name: "Omar Faruq",
+				url: "https://github.com/0xNaim",
+				email: "naimislam3545@gmail.com",
+			},
+		],
 	};
 }
 
-export default function UsecaseDetails({ params }: TBlogDetailsPageProps) {
-	const { slug: slugFromUrl } = params;
-	const { title, description, slug, content } = getusecaseData(slugFromUrl);
+export default async function UsecaseDetails({
+	params,
+}: TBlogDetailsPageProps) {
+	const { slug } = params;
+	const useCase = await getUseCaseBySlug(slug);
+	const { title, content } = useCase?.[0];
 
 	return (
 		<main className="flex-grow-1">
@@ -56,32 +89,7 @@ export default function UsecaseDetails({ params }: TBlogDetailsPageProps) {
 
 			<section className="pt-10 pt-lg-15">
 				<div className="container">
-					<div className="row align-center">
-						<Reveal className="col-lg-6 col-xl-5" delay={0.05}>
-							<div className="text-center text-lg-start">
-								<h1 className="mb-4 text-white">
-									Complete a blog entry in half the time.
-								</h1>
-								<p className="mb-8">
-									With a few clicks of a button, you can create a whole outline,
-									opening paragraph, and body for your blog.
-								</p>
-								<div className="w-xl-3quarter">
-									<Newsletter />
-								</div>
-							</div>
-						</Reveal>
-						<Reveal className="col-lg-6 offset-xl-1" delay={0.1}>
-							<div className="text-center">
-								<Image
-									placeholder="blur"
-									src={chatScreenImage}
-									alt="image"
-									className="img-fluid d-inline-block"
-								/>
-							</div>
-						</Reveal>
-					</div>
+					<NewsletterSection />
 					<hr className="border-top border-dark-blue opacity-100 my-18" />
 					<div className="row justify-center">
 						<div className="col-lg-8">

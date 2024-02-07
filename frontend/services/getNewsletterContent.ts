@@ -1,8 +1,8 @@
 import { normalizeResponse } from "@/utils/normalize-response";
 
-export const getUseCasesPageContent = async () => {
+export const getNewsletterContent = async () => {
 	const response = await fetch(
-		`${process.env.NEXT_PUBLIC_BASE_URL}/api/pricing-plan-page?populate=deep`,
+		`${process.env.NEXT_PUBLIC_BASE_URL}/api/newsletter?populate=*`,
 		{ cache: "no-store" }
 	);
 

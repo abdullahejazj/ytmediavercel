@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: TBlogDetailsPageProps) {
 
 	return {
 		title,
-		description: title,
+		description: content,
 		keywords: [category?.name],
 		openGraph: {
 			title,

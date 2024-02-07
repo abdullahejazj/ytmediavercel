@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * use-case service
+ * newsletter service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::use-case.use-case');
+module.exports = createCoreService('api::newsletter.newsletter');

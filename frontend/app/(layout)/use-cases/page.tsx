@@ -2,7 +2,7 @@ import CtaHome from "@/components/cta/CtaHome";
 import FaqSection from "@/components/faq/FaqSection";
 import Breadcrumb from "@/components/shared/Breadcrumb";
 import UseCasesSection from "@/components/usecase/UseCasesSection";
-import { getUseCasesPageContent } from "@/services/getUseCasesPageContent";
+import { getUseCasesPageContent } from "@/services/getUseCasesContent";
 
 // SEO Metadata
 export async function generateMetadata() {

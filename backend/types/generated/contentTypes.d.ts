@@ -1166,6 +1166,38 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
   };
 }
 
+export interface ApiNewsletterNewsletter extends Schema.SingleType {
+  collectionName: 'newsletters';
+  info: {
+    singularName: 'newsletter';
+    pluralName: 'newsletters';
+    displayName: 'Newsletter';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    heading: Attribute.Text & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::newsletter.newsletter',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::newsletter.newsletter',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPricingPlanPricingPlan extends Schema.SingleType {
   collectionName: 'pricing_plans';
   info: {
@@ -1272,39 +1304,6 @@ export interface ApiReviewReview extends Schema.SingleType {
   };
 }
 
-export interface ApiUseCaseUseCase extends Schema.SingleType {
-  collectionName: 'use_cases';
-  info: {
-    singularName: 'use-case';
-    pluralName: 'use-cases';
-    displayName: 'Use Cases';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String & Attribute.Required;
-    heading: Attribute.Text & Attribute.Required;
-    seo: Attribute.Component<'shared.seo'> & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::use-case.use-case',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::use-case.use-case',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiUseCasesPageUseCasesPage extends Schema.SingleType {
   collectionName: 'use_cases_pages';
   info: {
@@ -1366,10 +1365,10 @@ declare module '@strapi/types' {
       'api::faq.faq': ApiFaqFaq;
       'api::favorite-tool.favorite-tool': ApiFavoriteToolFavoriteTool;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::newsletter.newsletter': ApiNewsletterNewsletter;
       'api::pricing-plan.pricing-plan': ApiPricingPlanPricingPlan;
       'api::pricing-plan-page.pricing-plan-page': ApiPricingPlanPagePricingPlanPage;
       'api::review.review': ApiReviewReview;
-      'api::use-case.use-case': ApiUseCaseUseCase;
       'api::use-cases-page.use-cases-page': ApiUseCasesPageUseCasesPage;
     }
   }
