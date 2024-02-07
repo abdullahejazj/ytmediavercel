@@ -1,10 +1,13 @@
-import { getUseCases, getUseCasesContent } from "@/services/getUseCasesContent";
+import {
+	getUseCases,
+	getUseCasesPageContent,
+} from "@/services/getUseCasesContent";
 import Reveal from "../utils/Reveal";
 import Usecases from "./Usecases";
 
 const UseCasesSection = async ({ limit = 8 }) => {
 	const [casesContent, cases] = await Promise.all([
-		getUseCasesContent(),
+		getUseCasesPageContent(),
 		getUseCases(limit),
 	]);
 

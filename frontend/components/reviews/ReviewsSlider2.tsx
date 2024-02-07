@@ -9,7 +9,7 @@ type TReviewsSliderProps = {
 	reviewsData: TReview[];
 };
 
-export default function ReviewsSlider2({ reviewsData }: TReviewsSliderProps) {
+export default function ReviewsSlider2({ reviewsData }: any) {
 	const reviewCarouselSettings: SwiperProps = {
 		loop: false,
 		freeMode: true,
@@ -46,7 +46,7 @@ export default function ReviewsSlider2({ reviewsData }: TReviewsSliderProps) {
 				className="swiper review-carousel"
 				wrapperClass="swiper-wrapper"
 			>
-				{reviewsData.map((review) => (
+				{reviewsData.map((review:any) => (
 					<SwiperSlide key={review.id} className="swiper-slide h-auto">
 						<Review data={review} />
 					</SwiperSlide>

@@ -6,3 +6,13 @@ export type TReview = {
 	rating: number;
 	message: string;
 };
+
+export type TReview2 = {
+	id: number | string;
+	name: string;
+	designation: string;
+	image: string;
+	rating: number;
+	message: string;
+};
+

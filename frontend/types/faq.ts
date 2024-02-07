@@ -3,3 +3,9 @@ export type TFaq = {
     question: string;
     answer: string;
 }
+
+export type TFaq2 = {
+	id: number | string;
+	header: string;
+	body: string;
+};

@@ -1310,12 +1310,15 @@ export interface ApiUseCasesPageUseCasesPage extends Schema.SingleType {
     singularName: 'use-cases-page';
     pluralName: 'use-cases-pages';
     displayName: 'Use Cases Page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     breadcrumb: Attribute.Component<'shared.breadcrumb'> & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    heading: Attribute.Text & Attribute.Required;
     seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
