@@ -1198,6 +1198,40 @@ export interface ApiNewsletterNewsletter extends Schema.SingleType {
   };
 }
 
+export interface ApiNotFoundNotFound extends Schema.SingleType {
+  collectionName: 'not_founds';
+  info: {
+    singularName: 'not-found';
+    pluralName: 'not-founds';
+    displayName: '404 page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    button: Attribute.Component<'shared.button'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::not-found.not-found',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::not-found.not-found',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPricingPlanPricingPlan extends Schema.SingleType {
   collectionName: 'pricing_plans';
   info: {
@@ -1369,6 +1403,7 @@ declare module '@strapi/types' {
       'api::favorite-tool.favorite-tool': ApiFavoriteToolFavoriteTool;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::newsletter.newsletter': ApiNewsletterNewsletter;
+      'api::not-found.not-found': ApiNotFoundNotFound;
       'api::pricing-plan.pricing-plan': ApiPricingPlanPricingPlan;
       'api::pricing-plan-page.pricing-plan-page': ApiPricingPlanPagePricingPlanPage;
       'api::review.review': ApiReviewReview;

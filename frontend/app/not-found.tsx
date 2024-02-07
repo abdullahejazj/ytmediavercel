@@ -1,7 +1,7 @@
 import Footer from "@/components/shared/layouts/Footer";
 import Header from "@/components/shared/layouts/Header";
 import WithPaddingLayout from "@/components/shared/layouts/WithPaddingLayout";
-import notFoundImage from "@/public/images/illustrations/error-yellow.svg";
+import { get404PageContent } from "@/services/get404PageContent";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,7 +10,9 @@ export const metadata: Metadata = {
 	title: "Page not found",
 };
 
-export default function NotFound() {
+export default async function NotFound() {
+	const notFoundContent = await get404PageContent();
+
 	return (
 		<WithPaddingLayout>
 			<Header />
@@ -21,19 +23,23 @@ export default function NotFound() {
 							<div className="col-lg-6">
 								<div className="text-center">
 									<Image
-										src={notFoundImage}
+										src={notFoundContent?.image?.url}
+										width={1080}
+										height={720}
 										alt="not found"
 										className="img-fluid mb-10"
 									/>
-									<h2 className="mb-4 text-white">Oops! Page Not Found.</h2>
-									<p className="mb-8">
-										The page you are looking for is not available or has been
-										moved. Try a different page or go to homepage with the
-										button below.
-									</p>
-									<Link href="/" className="btn btn-primary-dark">
-										Go to home
-									</Link>
+									<h2 className="mb-4 text-white">{notFoundContent?.title}</h2>
+									<p className="mb-8">{notFoundContent?.description}</p>
+									{notFoundContent?.button?.variant === "contained" && (
+										<Link
+											href={notFoundContent?.button?.url || "#"}
+											target={notFoundContent?.button?.target || "_self"}
+											className="btn btn-primary-dark"
+										>
+											{notFoundContent?.button?.label}
+										</Link>
+									)}
 								</div>
 							</div>
 						</div>
