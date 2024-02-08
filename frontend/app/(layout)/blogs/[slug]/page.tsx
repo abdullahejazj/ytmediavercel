@@ -119,7 +119,7 @@ export default async function BlogDetailsPage({
 											className="w-8 h-8 object-cover rounded-circle flex-shrink-0"
 										/>
 										<p className="fw-medium mb-0 post-author">
-											{updatedBy?.firstname}
+											{updatedBy?.firstname || 'Admin'}
 										</p>
 									</div>
 
