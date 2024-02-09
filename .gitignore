@@ -70,17 +70,17 @@ $RECYCLE.BIN/
 
 # Packages
 
-*.7z
+# *.7z
 *.csv
 *.dat
 *.dmg
 # *.gz
 *.iso
 *.jar
-*.rar
-# *.tar
+# *.rar
 # *.tar.gz
-*.zip
+# *.tar
+# *.zip
 *.com
 *.class
 *.dll
