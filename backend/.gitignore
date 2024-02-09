@@ -36,16 +36,17 @@ $RECYCLE.BIN/
 # Packages
 ############################
 
-# *.7z
+*.7z
 *.csv
 *.dat
 *.dmg
-# *.gz
+*.gz
 *.iso
 *.jar
 *.rar
-# *.tar
-# *.zip
+*.tar.gz
+*.tar
+*.zip
 *.com
 *.class
 *.dll

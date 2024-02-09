@@ -74,11 +74,12 @@ $RECYCLE.BIN/
 *.csv
 *.dat
 *.dmg
-*.gz
+# *.gz
 *.iso
 *.jar
 *.rar
-*.tar
+# *.tar
+# *.tar.gz
 *.zip
 *.com
 *.class
