@@ -52,8 +52,6 @@ export default function Header() {
 		fetchHomeContent();
 	}, []);
 
-	console.log("Header: ", header);
-
 	const handleSticky = () => {
 		const scrollTop = window.scrollY;
 		scrollTop > 0 ? setIsSticky(true) : setIsSticky(false);
@@ -148,7 +146,6 @@ function NavbarLinkItem({
 	collapseMenu,
 }: TNavbarLinkItemProps) {
 	const { id, name, link, dropdown_menu, two_cols } = data;
-	console.log("Data: ", data);
 
 	const handleDropdownToggle = (e: SyntheticEvent) => {
 		e.preventDefault();
