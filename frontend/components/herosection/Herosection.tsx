@@ -10,7 +10,7 @@ import TypedText from "./TypedText";
 export default function Herosection({ heroContent }: IHeroSection) {
 	return (
 		<section
-			className="hero-section style-1 hero-bg-gradient overflow-hidden bg-dark pt-30 pb-15 pb-lg-20 pt-xl-36"
+			className="hero-section style-1 overflow-hidden bg-dark pt-30 pb-15 pb-lg-20 pt-xl-36"
 			data-bs-theme="dark"
 		>
 			<div className="container">
