@@ -31,7 +31,6 @@ export default function RegisterPage() {
 			});
 			return;
 		}
-		console.log(data);
 	};
 
 	const fetchBrandLogo = async () => {

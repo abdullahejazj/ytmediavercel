@@ -22,7 +22,7 @@ export default function LoginPage() {
 	const [brandLogo, setBrandLogo] = useState("");
 
 	const onSubmit = (data: TFormData) => {
-		console.log(data);
+		
 	};
 
 	const fetchBrandLogo = async () => {

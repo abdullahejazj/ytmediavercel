@@ -17,9 +17,7 @@ export default function Newsletter({ textButton = false }: TNewsletterProps) {
 		formState: { errors },
 	} = useForm<TFormData>();
 
-	const onSubmit = (data: TFormData) => {
-		console.log(data);
-	};
+	const onSubmit = (data: TFormData) => {};
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>

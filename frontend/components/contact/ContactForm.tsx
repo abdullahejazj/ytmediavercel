@@ -16,9 +16,7 @@ export default function ContactForm() {
 		formState: { errors },
 	} = useForm<TFormData>();
 
-	const onSubmit = (data: TFormData) => {
-		console.log(data);
-	};
+	const onSubmit = (data: TFormData) => {};
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} className="vstack gap-8">
