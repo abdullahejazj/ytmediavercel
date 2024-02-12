@@ -142,6 +142,7 @@ export interface ComponentsTeamMember extends Schema.Component {
     designation: Attribute.String & Attribute.Required;
     image: Attribute.Media & Attribute.Required;
     social_links: Attribute.Component<'shared.social-link', true> &
+      Attribute.Required &
       Attribute.SetMinMax<
         {
           max: 3;
