@@ -26,7 +26,7 @@
       "type": "component",
       "repeatable": true,
       "component": "shared.social-link",
-      "required": true,
+      "required": false,
       "max": 3
     }
   }
