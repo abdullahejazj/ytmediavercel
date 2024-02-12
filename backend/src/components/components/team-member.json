@@ -1,7 +1,8 @@
 {
   "collectionName": "components_components_team_members",
   "info": {
-    "displayName": "Team Member"
+    "displayName": "Team Member",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -14,16 +15,18 @@
       "required": true
     },
     "image": {
-      "allowedTypes": ["images"],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "social_links": {
       "type": "component",
       "repeatable": true,
       "component": "shared.social-link",
-      "required": true,
+      "required": false,
       "max": 3
     }
   }

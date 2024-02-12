@@ -135,13 +135,13 @@ export interface ComponentsTeamMember extends Schema.Component {
   collectionName: 'components_components_team_members';
   info: {
     displayName: 'Team Member';
+    description: '';
   };
   attributes: {
     name: Attribute.String & Attribute.Required;
     designation: Attribute.String & Attribute.Required;
     image: Attribute.Media & Attribute.Required;
     social_links: Attribute.Component<'shared.social-link', true> &
-      Attribute.Required &
       Attribute.SetMinMax<
         {
           max: 3;
@@ -275,10 +275,12 @@ export interface SharedBreadcrumb extends Schema.Component {
   collectionName: 'components_shared_breadcrumbs';
   info: {
     displayName: 'Breadcrumb';
+    description: '';
   };
   attributes: {
     label: Attribute.String & Attribute.Required;
-    links: Attribute.Component<'shared.breadcrumb-link', true>;
+    links: Attribute.Component<'shared.breadcrumb-link', true> &
+      Attribute.Required;
   };
 }
 
