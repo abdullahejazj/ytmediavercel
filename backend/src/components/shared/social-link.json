@@ -16,19 +16,19 @@
         "github",
         "youtube"
       ],
-      "required": true
+      "required": false
     },
     "icon": {
       "type": "media",
       "multiple": false,
-      "required": true,
+      "required": false,
       "allowedTypes": [
         "images"
       ]
     },
     "url": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "target": {
       "type": "enumeration",

@@ -466,10 +466,9 @@ export interface SharedSocialLink extends Schema.Component {
   attributes: {
     platform: Attribute.Enumeration<
       ['facebook', 'twitter', 'linkedin', 'instagram', 'github', 'youtube']
-    > &
-      Attribute.Required;
-    icon: Attribute.Media & Attribute.Required;
-    url: Attribute.String & Attribute.Required;
+    >;
+    icon: Attribute.Media;
+    url: Attribute.String;
     target: Attribute.Enumeration<['_self', '_blank']> &
       Attribute.DefaultTo<'_blank'>;
   };
