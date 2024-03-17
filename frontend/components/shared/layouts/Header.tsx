@@ -196,14 +196,16 @@ function NavbarLinkItem({
 								>
 									{dropItem.name}
 								</Link>
+
 							</li>
 						))}
 					</ul>
 				</React.Fragment>
 			) : (
+				
 				<Link className="nav-link" href={link || ""} onClick={collapseMenu}>
-					{name}
-				</Link>
+				{name}
+			</Link>
 			)}
 		</li>
 	);

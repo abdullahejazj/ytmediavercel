@@ -1,4 +1,5 @@
 import BlockFeatureSection from "@/components/blockfeature/BlockFeatureSection";
+import ContactFormHome from "@/components/contact/ContactFormHome";
 import CtaHome from "@/components/cta/CtaHome";
 import FaqSection from "@/components/faq/FaqSection";
 import FeaturesSection from "@/components/feature/FeaturesSection";
@@ -8,6 +9,9 @@ import ReviewsSection from "@/components/reviews/ReviewsSection";
 import UseCasesSection from "@/components/usecase/UseCasesSection";
 import { getHomePageContent } from "@/services/getHomePageContent";
 import { getPricingPlanContent } from "@/services/getPricingPlanContent";
+import homeExtenalLinks from "@/components/blogs/ExternalBlogs";
+import ExternalBlogs from "@/components/blogs/ExternalBlogs";
+import HomePageVideos from "@/components/herosection/HomePageVideos";
 
 // SEO Metadata
 export async function generateMetadata() {
@@ -70,13 +74,19 @@ export default async function Home() {
 
 			<FeaturesSection showButton />
 
-			<BlockFeatureSection features={homeContent?.features} />
+			<ContactFormHome />
 
+			<ExternalBlogs/>
+
+			<BlockFeatureSection features={homeContent?.features} />
+           
 			<UseCasesSection limit={8} />
 
 			<ReviewsSection />
 
 			<PricingSection pricingPlanContent={pricingPlanContent} />
+
+			<HomePageVideos/>
 
 			<FaqSection />
 

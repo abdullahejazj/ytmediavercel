@@ -18,7 +18,6 @@ export default async function ReviewsSection() {
 					</div>
 				</div>
 			</div>
-			<ReviewsSlider reviewsData={reviewContent?.reviews} />
 			<span className="d-block mt-6"></span>
 			<ReviewsSlider reviewsData={reviewContent?.reviews} reverseDirection />
 		</section>

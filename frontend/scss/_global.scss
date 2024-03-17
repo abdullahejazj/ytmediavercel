@@ -2,10 +2,12 @@ html,
 body,
 .wrapper {
 	height: 100%;
+	
 }
 
 a {
 	transition: $transition-fast;
+	
 }
 
 @import "components/gradients";
@@ -280,3 +282,5 @@ a {
 .hero-bg-gradient {
 	background: linear-gradient(to right, #0e2a40, #56616ceb) !important;
 }
+
+
