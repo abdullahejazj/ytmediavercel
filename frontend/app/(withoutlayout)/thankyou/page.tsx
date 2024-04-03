@@ -25,6 +25,7 @@ export default function ThankYouPage() {
                 <div className="text-center mt-10">
                     <h1 className="text-4xl font-bold text-primary-dark mt-5 mb-4">CONGRATULATIONS!</h1>
                     <h3 className="text-lg text-gray-700 mb-4 text-primary-dark">YOU ARE OFFICIALLY ON THE LIST!<br /></h3>
+
                     <div className='mt-10 mb-10'>
                         <h5 className='text-white'>Only a few channels remain for this month!</h5>
                         <h5 className="text-lg text-gray-700 mb-4 text-white">Now let's schedule your YouTube Automation consultation.</h5>

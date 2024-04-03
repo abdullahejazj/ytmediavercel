@@ -14,7 +14,7 @@ export default function ExternalBlogs() {
           <Link href="https://ceoweekly.com/yt-media-review-the-trustworthy-leadership-of-ceo-frank-emery-in-revolutionizing-youtube-automation/" passHref>
            
            <div className="d-flex justify-content-center align-items-center flex-column text-center">
-             <p className="fs-5 text-white">"A revolutionary service!" - CEOWeekly</p>
+           <p className="fs-5 text-white">&quot;A revolutionary service!&quot; - CEOWeekly</p>
              
            </div>
        
@@ -23,7 +23,7 @@ export default function ExternalBlogs() {
            
            <div className="d-flex justify-content-center align-items-center flex-column text-center">
             
-             <h4 className="fs-10 text-white">"Investment of the Year!" - NYWeekly</h4>
+           <h4 className="fs-10 text-white">&quot;Investment of the Year!&quot; - NYWeekly</h4>
            </div>
        
        </Link></div>
