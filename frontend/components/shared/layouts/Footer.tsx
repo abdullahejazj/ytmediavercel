@@ -18,26 +18,34 @@ export default async function Footer() {
 				<div className="row g-10">
 					<div className="col-lg-9 col-xl-8 order-lg-2">
 						<div className="row g-6">
-							{homeContent?.footer?.footer_columns?.map((column: any) => (
-								<div key={column?.id} className="col-md-4 col-lg-4">
+							
+								<div className="col-md-4 col-lg-4">
 									<div className="footer-widget text-center text-md-start">
-										<h6 className="text-white mb-2">{column?.label}</h6>
-										<ul className="link-list list-unstyled mb-0">
-											{column?.links?.map((link: any) => (
-												<li key={link?.id}>
-													<Link
-														key={link?.id}
-														href={link?.url || "#"}
-														target={link?.target || "_self"}
-													>
-														{link?.label}
-													</Link>
-												</li>
-											))}
-										</ul>
+									<ul className="link-list list-unstyled mb-0">
+                <li>
+                    <a href="/pricing-plan" target="_blank" rel="noopener noreferrer">
+                        Pricing
+                    </a>
+                </li>
+                <li>
+                    <a href="/contact" target="_blank" rel="noopener noreferrer">
+                        Contact
+                    </a>
+                </li>
+                <li>
+                    <a href="/about" target="_blank" rel="noopener noreferrer">
+                        About
+                    </a>
+                </li>
+                <li>
+                    <a href="/blogs" target="_blank" rel="noopener noreferrer">
+                        Blog
+                    </a>
+                </li>
+            </ul>
 									</div>
 								</div>
-							))}
+							
 
 							{/* Social column */}
 							<div className="col-md-4 col-lg-4">

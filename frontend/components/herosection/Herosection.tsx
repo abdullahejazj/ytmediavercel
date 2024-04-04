@@ -5,7 +5,7 @@ import { IHeroSection } from "@/types/components/hero-section";
 import Image from "next/image";
 import Link from "next/link";
 import TypedText from "./TypedText";
-
+import   './herostyle.css'
 export default function Herosection({ heroContent }: IHeroSection) {
   const [isVideoVisible, setIsVideoVisible] = useState(false);
   const [isThumbnailVisible, setIsThumbnailVisible] = useState(true);
@@ -22,7 +22,11 @@ export default function Herosection({ heroContent }: IHeroSection) {
           <div className="col-lg-9">
             <div className="text-center">
               <div className="position-relative z-1">
-                <p className="text-primary-dark">{heroContent?.title}</p>
+            <div className="siren-wrapper">
+            <div className="siren-text">
+                <div className="siren-red-icon"></div>
+                <div >“Minimum of $9,500 Required to Invest”</div>
+              </div> </div>             
                 <h1 className="text-white mb-8">
                   {heroContent?.heading} <br />
                   <TypedText typeWriter={heroContent?.type_writer} />

@@ -1,0 +1,26 @@
+.siren-text{
+   background: #0000004D;
+  padding: 3px;
+   border-radius: 30px;
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   justify-content: center;
+   width: 50%;
+ 
+}
+
+.siren-red-icon{
+height: 15px;
+width: 15px;
+ background: red;
+ border-radius: 100%;
+ border: 2px solid #ffe6e666;
+
+}
+
+.siren-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
