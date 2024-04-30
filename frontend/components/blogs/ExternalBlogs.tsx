@@ -1,9 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import ceoweekly from "@/public/images/blog/ceoweekly.png";
-import dgjournal from "@/public/images/blog/dgjournal.png";
-import msnlogo from "@/public/images/blog/msnlogo.png";
 
 export default function ExternalBlogs() {
   return (
@@ -11,11 +8,9 @@ export default function ExternalBlogs() {
      <div className="row justify-content-center align-items-center">
         <div className="mb-10 ">
          <div> 
-          <Link href="https://ceoweekly.com/yt-media-review-the-trustworthy-leadership-of-ceo-frank-emery-in-revolutionizing-youtube-automation/" passHref>
-           
+          <Link href="https://ceoweekly.com/yt-media-review-the-trustworthy-leadership-of-ceo-frank-emery-in-revolutionizing-youtube-automation/" passHref>       
            <div className="d-flex justify-content-center align-items-center flex-column text-center">
-           <p className="fs-5 text-white">&quot;A revolutionary service!&quot; - CEOWeekly</p>
-             
+           <p className="fs-5 text-white">&quot;A revolutionary service!&quot; - CEOWeekly</p>       
            </div>
        
        </Link>
@@ -33,9 +28,9 @@ export default function ExternalBlogs() {
       <div className="row justify-content-center align-items-center">
         <div className="col-md-4 mb-3 d-flex justify-content-center ">
           <Link href="https://www.msn.com/en-us/money/other/yt-media-review-youtube-automation-program-delivers-3000-50000-monthly-for-investors/ar-AA1kUNdK" passHref={true}>
-            <div className="logo-container pt-4 pb-5 rounded bg-light-blue-4 d-flex justify-content-center align-items-center">
+            <div className="logo-container pt-4 pb-5 rounded d-flex justify-content-center align-items-center">
               <Image
-                src={msnlogo}
+                src={"https://res.cloudinary.com/dbnyrcetn/image/upload/v1714482975/msn_logo_white_1_e7febc5bb9.png"}
                 alt="MSN Logo"
                 className="img-fluid btn"
                 width={460}
@@ -46,9 +41,9 @@ export default function ExternalBlogs() {
         </div>
         <div className="col-md-4 mb-3 d-flex  justify-content-center">
           <Link href="https://ceoweekly.com/yt-media-review-the-trustworthy-leadership-of-ceo-frank-emery-in-revolutionizing-youtube-automation/" passHref={true}>
-            <div className="logo-container pt-12 rounded pb-12 bg-light-blue-4 d-flex justify-content-center align-items-center ">
+            <div className="logo-container pt-12 rounded pb-12 d-flex justify-content-center align-items-center ">
               <Image
-                src={ceoweekly}
+                src={"https://res.cloudinary.com/dbnyrcetn/image/upload/v1714482975/CEO_Weekly_1_removebg_preview_1_44175124a9.png"}
                 alt="CeoWeekly Logo"
                 className="img-fluid btn"
                 width={460}
@@ -57,11 +52,11 @@ export default function ExternalBlogs() {
             </div>
           </Link>
         </div>
-        <div className="col-md-4 mb-3 d-flex justify-content-center">
+        <div className="col-md-4 mt-8 d-flex justify-content-center">
           <Link href="https://www.digitaljournal.com/pr/news/prwirecenter/ytmedia-io-review-is-yt-media-legit" passHref={true}>
-            <div className="logo-container rounded bg-light-blue-4 d-flex justify-content-center  align-items-center">
+            <div className="logo-container rounded d-flex justify-content-center  align-items-center">
               <Image
-                src={dgjournal}
+                src={"https://res.cloudinary.com/dbnyrcetn/image/upload/v1714482975/6597080865de637371e293ad_Newsroom_Images_copy_removebg_preview_1_1_4081242f77.png"}
                 alt="Digital Journal Logo"
                 className="img-fluid btn"
                 width={460}
