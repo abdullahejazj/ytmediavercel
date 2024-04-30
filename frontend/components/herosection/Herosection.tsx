@@ -49,7 +49,7 @@ export default function Herosection({ heroContent }: IHeroSection) {
                       style={{ width: "100%" }}
                       onLoadedMetadata={() => setIsThumbnailVisible(false)}
                     >
-                      <source src="https://developie.net/content/uploads/2024/03/Main-Vedio-1.mp4" type="video/mp4" />
+                      <source src="https://supermachines.io/wp-content/uploads/2024/04/Home-Page-Video-YT-Wealth-Builders.mp4" type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
                   ) : (
@@ -60,8 +60,9 @@ export default function Herosection({ heroContent }: IHeroSection) {
                         src={`${heroContent?.hero_image?.data?.attributes?.url}`}
                         width={1080}
                         height={720}
+                        style={{borderRadius:"20px"}}
                         alt="hero image"
-                        className="img-fluid d-inline-block cursor-pointer"
+                        className="img-fluid d-inline-block cursor-pointer b"
                         onClick={handleThumbnailClick}
                       />
                     )

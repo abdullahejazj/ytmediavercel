@@ -3,6 +3,7 @@ import React from 'react';
 import Breadcrumb from "@/components/shared/Breadcrumb";
 import PricingSection from "@/components/pricing/PricingSection";
 import { getPricingPlanContent } from "@/services/getPricingPlanContent";
+import HomePageVideos from '@/components/herosection/HomePageVideos';
 
 export default function ThankYouPage() {
     // Fetch pricing plan content
@@ -32,10 +33,41 @@ export default function ThankYouPage() {
                     </div>
                     <h2 className="text-lg text-gray-700 mb-8 fw-bold text-gradient-2 typed-animationc">PLEASE CHOOSE A DATE ON OUR CALENDAR.</h2>
                     {/* Add your calendar component here */}
-                    <div className="calendly-inline-widget" data-url="https://calendly.com/yt-media/youtube-accelerator-call2" style={{minWidth: '320px', height: '700px'}}></div>
+                    <div className="card-body">
+              <video className="ts-video-poster" width="100%"  controls> 
+                <source src={"https://supermachines.io/wp-content/uploads/2024/04/Thank-You-Page-Video-YT-Wealth-Builder.mp4"} type="video/mp4"/>
+                  
+                </video>
+             
+              </div>
+                    <div className="row row-cols-2 row-cols-md-1 g-4">
+        
+          <div  className="col-md-12 mb-4">
+            <div className="card">
+              <div className="card-body">
+               
+              <div className="calendly-inline-widget" data-url="https://calendly.com/yt-media/youtube-accelerator-call2" style={{minWidth: '320px', height: '700px'}}></div>
                     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+              
+        
+              </div>
+            </div>
+          </div>
+          {/* <div  className="col-md-5 mb-4">
+            <div className="card h-100">
+              <div className="card-body">
+              <video className="ts-video-poster" width="100%"  controls> 
+                <source src={"https://supermachines.io/wp-content/uploads/2024/04/Thank-You-Page-Video-YT-Wealth-Builder.mp4"} type="video/mp4"/>
+                  
+                </video>
+             
+              </div>
+            </div>
+          </div> */}
+      </div>
                 </div>
             </div>
+            <HomePageVideos/>
             {/* Render Pricing Section if data is available */}
             {pricingPlanContent && <PricingSection pricingPlanContent={pricingPlanContent} />}
         </main>
