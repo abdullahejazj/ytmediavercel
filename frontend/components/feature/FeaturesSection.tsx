@@ -11,7 +11,7 @@ export default async function FeaturesSection({
 	const favoritesTools = await getFavoriteToolsContent();
 
 	return (
-		<section className="py-10 py-lg-15">
+		<section className="py-10 py-lg-15" id="offers">
 			<div className="container">
 				<div className="text-center mb-18">
 					<Reveal el="h1" className="mb-0 text-white" delay={0.05}>

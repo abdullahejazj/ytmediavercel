@@ -6,7 +6,7 @@ export default async function FaqSection() {
 	const faqContent = await getFaqContent();
 
 	return (
-		<section className="py-10 py-lg-15">
+		<section className="py-10 py-lg-15" id="faqs">
 			<div className="container">
 				<div className="row justify-center mb-18">
 					<div className="col-lg-10">

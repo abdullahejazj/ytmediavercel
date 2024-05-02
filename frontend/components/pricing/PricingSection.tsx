@@ -31,7 +31,7 @@ export default function PricingSection({
 	};
 
 	return (
-		<section className="py-10 py-lg-15">
+		<section className="py-10 py-lg-15" id="pricings">
 			<div className="container">
 				<div className="row justify-center mb-18">
 					<div className="col-lg-10">

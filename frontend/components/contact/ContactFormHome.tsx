@@ -34,7 +34,7 @@ export default function ContactFormHome() {
 
  
   return (
-    <div className="container">
+    <div className="container" id="contactforms">
       <div className="row justify-content-center align-items-center">
         <div className="col-md-6 text-center">
         <h2 className="text-white text-4xl font-bold text-primary-dark mt-5 mb-4"> Are You Ready To Change Your Life ? </h2>

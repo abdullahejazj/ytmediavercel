@@ -21,7 +21,7 @@ const videos = [
 
 const HomePageVideos = () => {
   return (
-    <div className="container mt-20">
+    <div className="container mt-20" id='proofs'>
       <h2>Testimonials</h2>
       <div className="row row-cols-6 row-cols-md-6 g-4">
         {videos.map((video, index) => (
